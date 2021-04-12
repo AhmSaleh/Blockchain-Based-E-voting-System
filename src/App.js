@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import { Component } from 'react'
 import './App.css';
 import web3 from './web3'
 import ballot from './ballot'
+import LoginForm from './components/LoginForm'
+import RegisterForm from './components/RegisterForm'
+import Candidates from './components/Candidates'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends Component {
-  
+
+  candidates = this.getCandidates();
+
   state = {
      admin: '',
      message:'',
-     candidateIndex:0
+     candidateIndex:0,
   };
 
   async componentDidMount (){
     const admin = await ballot.methods.admin().call(); 
-
     this.setState({ admin });
   }
 
+  // This function should be moved to the Candidates component
   onSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,10 +40,32 @@ class App extends Component {
   };
 
 
+  // This function should handle getting all candidates from the Db
+  getCandidates(){
+    return [
+      {
+        name: "Saleh"
+      },
+      {
+        name: "Bola"
+      },
+      {
+        name: "Martini"
+      },
+      {
+        name: "Khedr"
+      },
+      {
+        name: "Joe"
+      }
+    ];
+  };
+
   render() {
     return (
+      <Router>
       <div>
-        <h2>Ballot Contract</h2>
+        {/* <h2>Ballot Contract</h2>
         <p>
           This contract is managed by {this.state.admin}.  
         </p>
@@ -55,8 +82,18 @@ class App extends Component {
             <br/>
           <button>Vote</button>         
         </form>
-        <h2>{this.state.message}</h2>
+        <h2>{this.state.message}</h2> */}
+        <Route path="/login" component={LoginForm}/>
+        <Route path="/register" component={RegisterForm}/>
+        <Route path="/candidates" render={(props) => (
+          <>
+            <Candidates candidates={this.candidates}/>
+          </>
+        )}
+        />
+
       </div>
+      </Router>
     );
   }
 }
