@@ -1,37 +1,44 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const { User, validateUser } = require('../models/user');
+const bcrypt = require('bcrypt');
+const _ = require('lodash');
+const { User, validateUser, validatePassword } = require('../models/user');
 
 router.post('/', async (req, res) => {
     const { error } = validateUser(req.body); 
-    if(error) return res.status(400).send(error.message);
+    if(error) return res.status(400).send(error.details[0].message);
 
-    const user = new User({
+    let user = await User.findOne({ nationalID: req.body.nationalID });
+    if(user) return res.status(400).send('User already exists');
+
+    user = new User({
         nationalID: req.body.nationalID,
         email: req.body.email,
-        isRegistered: req.body.isRegistered
+        isRegistered: req.body.isRegistered,
+        isAdmin: req.body.isAdmin
     });
 
     await user.save();
     res.send(user);
 });
 
-router.put('/:id', async (req, res) => {
-    const user = await User.updateOne({ nationalID: req.params.id }, {
-        $set: {
-            password: req.body.password
-        }
-    });
+router.put('/', async (req, res) => {
+    const { error } = validatePassword(req.body.password);
+    if(error) return res.status(400).send(error.details[0].message);
+    
+    let user = await User.findOne({ nationalID: req.body.nationalID }).select({ isRegistered: 1});
     if(!user) return res.status(404).send('User with the given National ID was not found');
+    else if(user.isRegistered) return res.status(400).send('User already registered');
 
-    //const result = await user.save();
-    res.send(user);
+    const salt = await bcrypt.genSalt(10);
+    user.isRegistered = true;
+    user.password = await bcrypt.hash(req.body.password, salt);
+    //user.isAdmin = true;
+    
+    await user.save();
+    const token = user.generateAuthToken();
+    res.header('x-auth-token', token).send(_.pick(user, ['_id']));
 });
 
-router.get('/:id', async( req, res) => {
-    const user = await User.find({ nationalID: req.params.id });
-    if(!user) return res.status(404).send('User with the given National ID was not found');
-    res.send(user);
-});
 module.exports = router;

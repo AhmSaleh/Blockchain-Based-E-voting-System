@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const { Candidate } = require('../models/candidate');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 
-router.post('/', async (req, res) => {
+router.post('/',[auth, admin], async (req, res) => {
     const user = new Candidate({
         name: req.body.name,
     });
@@ -12,7 +14,7 @@ router.post('/', async (req, res) => {
     res.send(user);
 });
 
-router.delete('/:id', async( req, res) => {
+router.delete('/:id',[auth, admin], async(req, res) => {
     const user = await Candidate.findByIdAndDelete({ _id: id });
     if(!user) return res.status(404).send('User with the given National ID was not found');
     res.send(user);

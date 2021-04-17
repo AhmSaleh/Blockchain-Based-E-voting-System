@@ -3,8 +3,10 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const { Election } = require('../models/election');
 //const { Candidate } = require('../models/candidate');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 
-router.post('/', async (req, res) => {
+router.post('/', [auth, admin], async (req, res) => {
     const election = new Election({
         candidateWinner: req.body.candidateID,
         candidateWinnerVotes: req.body.candidateWinnerVotes,
@@ -17,15 +19,16 @@ router.post('/', async (req, res) => {
     res.send(election);
 });
 
-router.get('/:id', async( req, res) => {
+router.get('/:id', auth, async( req, res) => {
     const election = await Election.findById(req.params.id);
     if(!election) return res.status(404).send('Election with the given ID was not found');
     res.send(election);
 });
 
-router.get('/', async( req, res) => {
+router.get('/', auth, async( req, res) => {
     const election = await Election.find().sort({startDate: -1});
     if(!election) return res.status(404).send('No Elections were found');
     res.send(election);
 });
+
 module.exports = router;

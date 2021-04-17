@@ -1,0 +1,98 @@
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:40:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:42:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"jwt is not defined jwt is not defined","stack":"ReferenceError: jwt is not defined\n    at model.userSchema.methods.generateAuthToken (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:34:19)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:43:24\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"token is not defined token is not defined","stack":"ReferenceError: token is not defined\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:44:32\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errors":{"name":{"name":"ValidatorError","message":"Path `name` is required.","properties":{"message":"Path `name` is required.","type":"required","path":"name"},"kind":"required","path":"name"}},"_message":"Cadidate validation failed","level":"error","message":"Cadidate validation failed: name: Path `name` is required. Cadidate validation failed: name: Path `name` is required.","stack":"ValidationError: Cadidate validation failed: name: Path `name` is required.\n    at model.Document.invalidate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\document.js:2703:32)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\document.js:2523:17\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\schematype.js:1254:9\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\t\"name\": \"ahmed\n}","type":"entity.parse.failed","level":"error","message":"Unexpected token \n in JSON at position 17 Unexpected token \n in JSON at position 17","stack":"SyntaxError: Unexpected token \n in JSON at position 17\n    at JSON.parse (<anonymous>)\n    at parse (E:\\Blockchain-Based-E-voting-System\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:224:16)\n    at done (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:327:22)\n    at endReadableNT (internal/streams/readable.js:1327:12)\n    at processTicksAndRejections (internal/process/task_queues.js:80:21)"}
+{"expose":true,"statusCode":400,"status":400,"body":"{\n\t\"name\": \"ahmed\n}","type":"entity.parse.failed","level":"error","message":"Unexpected token \n in JSON at position 17 Unexpected token \n in JSON at position 17","stack":"SyntaxError: Unexpected token \n in JSON at position 17\n    at JSON.parse (<anonymous>)\n    at parse (E:\\Blockchain-Based-E-voting-System\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:224:16)\n    at done (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (E:\\Blockchain-Based-E-voting-System\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:327:22)\n    at endReadableNT (internal/streams/readable.js:1327:12)\n    at processTicksAndRejections (internal/process/task_queues.js:80:21)"}
+{"message":"Listening on port: 3000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
