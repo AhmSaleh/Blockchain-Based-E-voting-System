@@ -1,15 +1,31 @@
 import {Link} from 'react-router-dom'
+const axios = require('axios');
 
-const LoginForm = () => {
+const LoginForm = (onTokenChange) => {
+    //onTokenChange.bind(this);
     const Login = (event) => {
         event.preventDefault();
 
         // Placeholder code to be removed
-        window.location.pathname="/candidates";
         
 
         // TODO add Login logic by checking against Database
-
+        const param = {
+            nationalID: event.target.nationalID.value,
+            password: event.target.password.value
+        }
+        var token;
+        axios.post('http://localhost:5000/api/auth', param)
+        .then((res) => {
+            if(res.status === 200)
+            {
+                //onTokenChange(res.data);
+                token = res.data;
+                alert(token);
+                window.location.pathname="/candidates";
+            }
+        })
+        .catch((e) => alert(e.message));
     }
     
     return (

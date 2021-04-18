@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Candidates = ({candidates}) => {
+const Candidates = ({candidates, token}) => {
+    console.log(token);
     return (
         <div>
             {candidates.length > 0 ? (

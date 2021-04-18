@@ -6,20 +6,21 @@ import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
 import Candidates from './components/Candidates'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+const axios = require('axios');
 
 class App extends Component {
-
-  candidates = this.getCandidates();
-
   state = {
      admin: '',
      message:'',
      candidateIndex:0,
+     candidates: {},
+     token: '',
   };
 
   async componentDidMount (){
     const admin = await ballot.methods.admin().call(); 
     this.setState({ admin });
+    this.getCandidates();
   }
 
   // This function should be moved to the Candidates component
@@ -41,25 +42,17 @@ class App extends Component {
 
 
   // This function should handle getting all candidates from the Db
-  getCandidates(){
-    return [
-      {
-        name: "Saleh"
-      },
-      {
-        name: "Bola"
-      },
-      {
-        name: "Martini"
-      },
-      {
-        name: "Khedr"
-      },
-      {
-        name: "Joe"
-      }
-    ];
+  async getCandidates(){
+     const res = await axios.get('http://localhost:5000/api/candidates');
+     console.log(res.data);
+     const candidates = res.data;
+     this.setState({ candidates });
   };
+
+  handleTokenChange(token) {
+    this.setState({ token });
+    //alert(token);
+  }
 
   render() {
     return (
@@ -83,11 +76,13 @@ class App extends Component {
           <button>Vote</button>         
         </form>
         <h2>{this.state.message}</h2> */}
-        <Route path="/login" component={LoginForm}/>
+        <Route path="/login" render={() => (<> <LoginForm onTokenChange={this.handleTokenChange}/> </>)}/>
         <Route path="/register" component={RegisterForm}/>
         <Route path="/candidates" render={(props) => (
           <>
-            <Candidates candidates={this.candidates}/>
+            <Candidates candidates={this.state.candidates}
+              token={this.state.token}
+            />
           </>
         )}
         />

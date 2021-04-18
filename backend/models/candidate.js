@@ -4,7 +4,7 @@ const Joi = require('joi');
 const candidateSchema = new mongoose.Schema({
     name: {
         type: String,
-        minlength: 5,
+        minlength: 3,
         maxlength: 50,
         required: true
     },
