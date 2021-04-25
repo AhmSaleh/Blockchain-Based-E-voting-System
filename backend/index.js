@@ -1,11 +1,11 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const winston = require('winston');
+const winston = require("winston");
 
-require('./startup/logging')();
-require('./startup/config')();
-require('./startup/routes')(app);
-require('./startup/db')();
+require("./startup/logging")();
+require("./startup/config")();
+require("./startup/routes")(app);
+require("./startup/db")();
 
 //throw(new Error('lol'));
 
