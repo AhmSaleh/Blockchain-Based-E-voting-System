@@ -1,11 +1,10 @@
 import { Component } from 'react'
 import './App.css';
-import web3 from './web3'
-import ballot from './ballot'
-import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
-import Candidates from './components/Candidates'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import ballot from './ballot';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
+import Candidates from './components/Candidates';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 const axios = require('axios');
 
 class App extends Component {
@@ -23,24 +22,6 @@ class App extends Component {
     this.getCandidates();
   }
 
-  // This function should be moved to the Candidates component
-  onSubmit = async (event) => {
-    event.preventDefault();
-
-    console.log(this.state.index);
-    const accounts = await web3.eth.getAccounts();
-
-    this.setState({ message: 'Waiting on transcation success...'});
-
-    await ballot.methods.vote(this.state.index).send({
-      from: accounts[0],
-      gas:'100000'
-    })
-
-    this.setState({ message: 'You have been entered!'});
-  };
-
-
   // This function should handle getting all candidates from the Db
   async getCandidates(){
      const res = await axios.get('http://localhost:5000/api/candidates');
@@ -51,7 +32,7 @@ class App extends Component {
 
   handleTokenChange(token) {
     this.setState({ token });
-    //alert(token);
+    alert(token);
   }
 
   render() {
@@ -82,6 +63,7 @@ class App extends Component {
           <>
             <Candidates candidates={this.state.candidates}
               token={this.state.token}
+              admin={this.state.admin}
             />
           </>
         )}
