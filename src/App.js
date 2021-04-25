@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Candidates from './components/Candidates';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import NewCandidate from './components/NewCandidate'
 const axios = require('axios');
 
 class App extends Component {
@@ -59,6 +60,7 @@ class App extends Component {
         <h2>{this.state.message}</h2> */}
         <Route path="/login" render={() => (<> <LoginForm onTokenChange={this.handleTokenChange}/> </>)}/>
         <Route path="/register" component={RegisterForm}/>
+        <Route path="/newcandidate" component={NewCandidate}/>
         <Route path="/candidates" render={(props) => (
           <>
             <Candidates candidates={this.state.candidates}

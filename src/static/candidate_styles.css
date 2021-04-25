@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/* <<<<<<< HEAD */
 body{margin-top:20px;
     background:#eee;
     }
@@ -134,7 +134,7 @@ body{margin-top:20px;
         color: #ffffff;
     }
     
-=======
+/* ======= */
 body {
   margin-top: 20px;
   background: #eee;
@@ -270,4 +270,4 @@ body {
 .single_advisor_profile:focus .single_advisor_details_info p {
   color: #ffffff;
 }
->>>>>>> bd48a622813e62d380feb1964a02d9587a181f70
+/* >>>>>>> bd48a622813e62d380feb1964a02d9587a181f70 */

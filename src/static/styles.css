@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+/* <<<<<<< HEAD */
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
@@ -82,7 +82,7 @@ color: white;
 .links a{
 margin-left: 4px;
 }
-=======
+/* ======= */
 @import url("https://fonts.googleapis.com/css?family=Numans%27");
 
 html,
@@ -169,4 +169,8 @@ input:focus {
 .links a {
   margin-left: 4px;
 }
->>>>>>> bd48a622813e62d380feb1964a02d9587a181f70
+
+.new_candidate_form {
+  margin: 3% 3%;
+}
+/* >>>>>>> bd48a622813e62d380feb1964a02d9587a181f70 */
