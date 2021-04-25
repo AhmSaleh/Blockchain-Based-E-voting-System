@@ -68,7 +68,7 @@ class NewCandidate extends React.Component {
                             />
                         </Form.Field>
                         <Message error header="Oops!" content={this.state.errorMessage} />
-                        <Button loading={this.state.loading} type='submit'>Add</Button>
+                        <Button fluid secondary style={{margin: "0 auto", display: "block", margin:"10% 0px"}} loading={this.state.loading} type='submit'>Add</Button>
                     </Form>
                 </div>
             </Layout>
