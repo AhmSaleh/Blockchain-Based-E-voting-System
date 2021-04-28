@@ -3,6 +3,7 @@ const Joi = require("joi");
 const passwordComplexity = require("joi-password-complexity");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const atob = require("atob");
 
 const userSchema = new mongoose.Schema({
   nationalID: {
@@ -15,10 +16,6 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 200,
     default: "^&^$%^#^%^*&^*&@&^#@^%#*&^$%^&#",
-  },
-  isRegistered: {
-    type: Boolean,
-    default: false,
   },
   email: {
     type: String,
@@ -34,11 +31,16 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  isRegistered: {
+    type: Boolean,
+    default: false,
+  },
 });
 
+//Generate the token using the JsonWebTokens library for the user to be able to int
 userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
-    { _id: this._id, isAdmin: this.isAdmin },
+    { _id: this._id, isAdmin: this.isAdmin, hasVoted: this.hasVoted },
     config.get("jwtPrivateKey")
   );
   return token;
@@ -46,6 +48,7 @@ userSchema.methods.generateAuthToken = function () {
 
 const User = mongoose.model("User", userSchema);
 
+//Validate the user properties before saving into the Database
 function validateUser(user) {
   const schema = Joi.object({
     nationalID: Joi.string().required().length(14),
@@ -68,6 +71,16 @@ function validatePassword(password) {
   return passwordComplexity(complexityOptions).validate(password);
 }
 
+//Decode the token using atob and returning it as a JSON object
+const parseJwt = (token) => {
+  try {
+    return JSON.parse(atob(token.split(".")[1]));
+  } catch (e) {
+    return null;
+  }
+};
+
 exports.User = User;
 exports.validateUser = validateUser;
 exports.validatePassword = validatePassword;
+exports.parseJwt = parseJwt;

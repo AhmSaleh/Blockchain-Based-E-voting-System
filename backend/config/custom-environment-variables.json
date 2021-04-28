@@ -1,3 +1,4 @@
 {
-  "jwtPrivateKey": "evote_jwtPrivateKey"
+  "jwtPrivateKey": "evote_jwtPrivateKey",
+  "password": "evote_password"
 }

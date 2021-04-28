@@ -165,3 +165,178 @@
 {"message":"Connected to the Database successfully!","level":"info"}
 {"message":"Listening on port: 3000","level":"info"}
 {"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"atob is not defined atob is not defined","stack":"ReferenceError: atob is not defined\n    at parseJwt (E:\\Blockchain-Based-E-voting-System\\backend\\models\\user.js:74:21)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:58:21\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (E:\\Blockchain-Based-E-voting-System\\backend\\middleware\\auth.js:10:9)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Options must be an object, got \"true\" Options must be an object, got \"true\"","stack":"Error: Options must be an object, got \"true\"\n    at model.Query.Query.setOptions (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:1393:11)\n    at model.Query.Query.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:3054:8)\n    at Function.Model.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2491:13)\n    at Function.Model.findByIdAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2618:32)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:59:25\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (E:\\Blockchain-Based-E-voting-System\\backend\\middleware\\auth.js:10:9)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Options must be an object, got \"true\" Options must be an object, got \"true\"","stack":"Error: Options must be an object, got \"true\"\n    at model.Query.Query.setOptions (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:1393:11)\n    at model.Query.Query.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:3054:8)\n    at Function.Model.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2491:13)\n    at Function.Model.findByIdAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2618:32)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:59:25\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (E:\\Blockchain-Based-E-voting-System\\backend\\middleware\\auth.js:10:9)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Options must be an object, got \"true\" Options must be an object, got \"true\"","stack":"Error: Options must be an object, got \"true\"\n    at model.Query.Query.setOptions (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:1393:11)\n    at model.Query.Query.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:3054:8)\n    at Function.Model.findOneAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2491:13)\n    at Function.Model.findByIdAndUpdate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\model.js:2618:32)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:59:25\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at module.exports (E:\\Blockchain-Based-E-voting-System\\backend\\middleware\\auth.js:10:9)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Configuration property \"evote_password\" is not defined Configuration property \"evote_password\" is not defined","stack":"Error: Configuration property \"evote_password\" is not defined\n    at Config.get (E:\\Blockchain-Based-E-voting-System\\node_modules\\config\\lib\\config.js:182:11)\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:91:20\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (E:\\Blockchain-Based-E-voting-System\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (E:\\Blockchain-Based-E-voting-System\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errno":-4078,"code":"ESOCKET","syscall":"connect","address":"127.0.0.1","port":587,"command":"CONN","level":"error","message":"connect ECONNREFUSED 127.0.0.1:587 connect ECONNREFUSED 127.0.0.1:587","stack":"Error: connect ECONNREFUSED 127.0.0.1:587\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errno":-4078,"code":"ESOCKET","syscall":"connect","address":"127.0.0.1","port":587,"command":"CONN","level":"error","message":"connect ECONNREFUSED 127.0.0.1:587 connect ECONNREFUSED 127.0.0.1:587","stack":"Error: connect ECONNREFUSED 127.0.0.1:587\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errno":-4078,"code":"ESOCKET","syscall":"connect","address":"127.0.0.1","port":587,"command":"CONN","level":"error","message":"connect ECONNREFUSED 127.0.0.1:587 connect ECONNREFUSED 127.0.0.1:587","stack":"Error: connect ECONNREFUSED 127.0.0.1:587\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errno":-4039,"code":"ESOCKET","syscall":"connect","address":"40.101.92.2","port":465,"command":"CONN","level":"error","message":"connect ETIMEDOUT 40.101.92.2:465 connect ETIMEDOUT 40.101.92.2:465","stack":"Error: connect ETIMEDOUT 40.101.92.2:465\n    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1146:16)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"code":"EENVELOPE","command":"API","level":"error","message":"No recipients defined No recipients defined","stack":"Error: No recipients defined\n    at SMTPConnection._formatError (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:774:19)\n    at SMTPConnection._setEnvelope (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:985:34)\n    at SMTPConnection.send (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:605:14)\n    at sendMessage (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:227:28)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:285:25\n    at SMTPConnection._actionAUTHComplete (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1527:9)\n    at SMTPConnection.<anonymous> (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1471:18)\n    at SMTPConnection._processResponse (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:932:20)\n    at SMTPConnection._onData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:739:14)\n    at TLSSocket.SMTPConnection._onSocketData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:189:44)\n    at TLSSocket.emit (events.js:315:20)\n    at addChunk (internal/streams/readable.js:309:12)\n    at readableAddChunk (internal/streams/readable.js:284:9)\n    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
