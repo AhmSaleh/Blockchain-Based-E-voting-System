@@ -1,50 +1,42 @@
 import React, { Component } from 'react';
-import web3 from '../web3';
-import ballot from '../ballot';
 import swal from 'sweetalert';
-import '../static/candidate_styles.css';
 
-class Candidates extends Component {
-    
-    vote = (event) => {
+const axios = require('axios');
+
+class RemoveCandidate extends Component {
+    remove = (event) => {
         swal({
             title: "Are you sure?",
-            text: "Once your vote has been cast, it cannot be changed!",
+            text: "Once the candidate is removed, your action cannot be undone!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
           })
-          .then((willVote) => {
-            if (willVote) {
-                this.voteYesCallback(event);
+          .then((willRemove) => {
+            if (willRemove) {
+                this.removeYesCallback(event);
             } else {
-              swal("You did not cast a vote.");
+              swal("Candidate not removed.");
             }
           });
     }
     
-    voteYesCallback = async (event) => {
+    removeYesCallback = (event) => {
         event.preventDefault();
 
-        console.log(this.state.index);
-        const accounts = await web3.eth.getAccounts();
+        // TODO: check if this syntax is correct (i.e. the correct index is being accessed)
+        var candidateID = this.props.candidates[this.state.index].id;
 
-        await ballot.methods.vote(this.state.index).send({
-        from: accounts[0],
-        gas:'100000'
+        // TODO: check if this request syntax is correct
+        axios.delete('http://localhost:5000/api/candidates/{id}', candidateID)
+        .then((res) => {
+            if(res.status === 200)
+            {
+                swal("Success!", "Candidate removed successfully!", "success");
+                window.location.pathname="/removecandidate";
+            }
         })
-        .then((hasVoted) => {
-            if(hasVoted){
-                swal("Your vote was successfully cast!", {
-                    icon: "success",
-                  });
-            }
-            else{
-                swal("Error", "There was an error when casting your vote!", {
-                    icon: "error",
-                  });
-            }
-        });
+        .catch(() => swal("Error!", "Failed to remove candidate!", "error"));
     };
 
     render(){
@@ -63,7 +55,7 @@ class Candidates extends Component {
                                 {/* Section Heading */}
                                 <div className="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}}>
                                     <h3>Candidates</h3>
-                                    <p>Please cast your vote for one of the available candidates.</p>
+                                    <p>Choose A Candidate To Remove:</p>
                                     <div className="line"></div>
                                 </div>
                             </div>
@@ -74,7 +66,7 @@ class Candidates extends Component {
                                  this.props.candidates.map((candidate) => (
                                      // Candidate
                                     <div className="col-12 col-sm-6 col-lg-3">
-                                        <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}} onClick={this.vote}>
+                                        <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}} onClick={this.remove}>
                                             {/* Candidate Avatar */}
                                             <div className="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/></div>
                                             {/* Candidate Details */}
@@ -85,32 +77,19 @@ class Candidates extends Component {
                                         </div>
                                     </div>))
                             ) : ("There are currently no candidates")}
-    
-                            {/* Candidate */}
-                            {/* <div className="col-12 col-sm-6 col-lg-3">
-                                <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}} onClick={this.vote}> */}
+
+                            {/* TODO PLACEHOLDER TO BE REMOVED */}
+                            <div className="col-12 col-sm-6 col-lg-3">
+                                <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}} onClick={this.remove}>
                                     {/* Candidate Avatar */}
-                                    {/* <div className="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/></div> */}
+                                    <div className="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/></div>
                                     {/* Candidate Details */}
-                                    {/* <div className="single_advisor_details_info">
+                                    <div className="single_advisor_details_info">
                                         <h6>Simon Jackson</h6>
                                         <p className="designation">Candidate symbol</p>
                                     </div>
                                 </div>
-                            </div> */}
-    
-                            {/* Candidate */}
-                            {/* <div className="col-12 col-sm-6 col-lg-3">
-                                <div className="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style={{visibility: "visible", animationDelay: 0.2, animationName: "fadeInUp"}} onClick={this.vote}> */}
-                                    {/* Candidate Avatar */}
-                                    {/* <div className="advisor_thumb"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""/></div> */}
-                                    {/* Candidate Details */}
-                                    {/* <div className="single_advisor_details_info">
-                                        <h6>Simon Jackson</h6>
-                                        <p className="designation">Candidate symbol</p>
-                                    </div>
-                                </div>
-                            </div> */}
+                            </div>
     
                         </div>
                     </div>
@@ -120,4 +99,4 @@ class Candidates extends Component {
     }
 }
 
-export default Candidates;
+export default RemoveCandidate

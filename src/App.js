@@ -4,8 +4,10 @@ import ballot from './ballot';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Candidates from './components/Candidates';
+import Admin from './components/Admin';
+import NewCandidate from './components/NewCandidate';
+import RemoveCandidate from './components/RemoveCandidate';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import NewCandidate from './components/NewCandidate'
 const axios = require('axios');
 
 class App extends Component {
@@ -40,28 +42,12 @@ class App extends Component {
     return (
       <Router>
       <div>
-        {/* <h2>Ballot Contract</h2>
-        <p>
-          This contract is managed by {this.state.admin}.  
-        </p>
-        <hr/>
-        <form onSubmit={this.onSubmit}>
-          <h4>Please choose one candidate! </h4> 
-            <div onChange={event => this.setState({index: event.target.value})}>
-              <label><input type="radio" name="candidate" value="0"/>Joe</label><br/>
-              <label><input type="radio" name="candidate" value="1"/>Martini</label><br/>
-              <label><input type="radio" name="candidate" value="2"/>Khedr</label><br/>
-              <label><input type="radio" name="candidate" value="3"/>Ebola</label><br/>
-              <label><input type="radio" name="candidate" value="4"/>Saleh</label><br/>
-            </div>
-            <br/>
-          <button>Vote</button>         
-        </form>
-        <h2>{this.state.message}</h2> */}
         <Route path="/login" render={() => (<> <LoginForm onTokenChange={this.handleTokenChange}/> </>)}/>
         <Route path="/register" component={RegisterForm}/>
+        <Route path="/admin" component={Admin}/>
         <Route path="/newcandidate" component={NewCandidate}/>
-        <Route path="/candidates" render={(props) => (
+        <Route path="/removecandidate" render={() => (<><RemoveCandidate candidates={this.state.candidates}/></>)}/>
+        <Route path="/candidates" render={() => (
           <>
             <Candidates candidates={this.state.candidates}
               token={this.state.token}

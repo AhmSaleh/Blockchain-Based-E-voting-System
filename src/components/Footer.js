@@ -18,7 +18,7 @@ export default (props) =>{
               openExternal: true,
             },
             ]}
-            bottom="Made with ❤️ by JOE"
+            bottom="Made with ❤️ by KING SALEH"
         />,
         </div>
       )
