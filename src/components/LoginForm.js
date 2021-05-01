@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
 import swal from "sweetalert";
 import "../static/styles.css";
 const atob = require("atob");
@@ -15,6 +16,7 @@ const parseJwt = (token) => {
 };
 
 class LoginForm extends Component {
+  
   login = (event) => {
     event.preventDefault();
 
@@ -27,17 +29,25 @@ class LoginForm extends Component {
       .post("http://localhost:5000/api/auth", param)
       .then((res) => {
         if (res.status === 200) {
-          //this.props.onTokenChange(res.data);
-          const tokenInfo = parseJwt(res.data);
+          const token = res.data;
+          this.props.tokenHandler(token);
+          const tokenInfo = parseJwt(token);
           swal("Success!", "You've been logged in successfully!", "success");
           if (tokenInfo.isAdmin) window.location.pathname = "/newcandidate";
           else window.location.pathname = "/candidates";
         }
       })
-      .catch((err) => {
+      .catch(() => {
         swal("Error!", "Failed to log in!", "error");
       });
   };
+
+  // TODO: Remove this fucntion. It was used to test setting state
+  // between different components.
+  // ============================================
+  // testBtnFunc = () => {
+  //   this.props.testPropHandler("TEST LMFAOOOO");
+  // }
 
   render() {
     return (
@@ -61,6 +71,11 @@ class LoginForm extends Component {
         </head>
 
         <body>
+
+          {/* TODO: Remove this button, It was used to test setting state
+          // between different components. */}
+          {/* <Button onClick={this.testBtnFunc}>YOOOO</Button> */}
+
           <div className="container" style={{ margin: "auto", width: "auto" }}>
             <div className="d-flex justify-content-center h-100">
               <div className="card">
@@ -69,7 +84,7 @@ class LoginForm extends Component {
                 </div>
 
                 <div className="card-body">
-                  {/* Registration Form */}
+                  {/* Login Form */}
                   <form onSubmit={this.login}>
                     {/* National ID Input Group */}
                     <div className="input-group form-group">
