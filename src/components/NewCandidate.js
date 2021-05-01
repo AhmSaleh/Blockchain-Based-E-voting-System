@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Message } from "semantic-ui-react";
+import { Form, Button, Message, Image } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import web3 from "../web3";
 import ballot from "../ballot";
@@ -38,7 +38,18 @@ class NewCandidate extends React.Component {
     // this.state.candidateName/candidateSymbol
   };
 
+  imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () =>{
+      if(reader.readyState === 2){
+        this.setState({candidatePhoto: reader.result})
+      }
+    }
+    reader.readAsDataURL(e.target.files[0])
+  };
+
   render() {
+    const { candidatePhoto } = this.state
     return (
       <Layout>
         <div class="new_candidate_form">
@@ -65,14 +76,11 @@ class NewCandidate extends React.Component {
             </Form.Field>
             <Form.Field>
               <label>Photo</label>
-              <input
-                type="file"
-                placeholder="Candidate Photo"
-                onChange={(event) =>
-                  this.setState({ candidatePhoto: event.target.files[0] })
-                }
-              />
+              <input type="file" accept="image/*" name="image-upload" id="input" onChange={this.imageHandler} />
             </Form.Field>
+            <div className="img-holder">
+						  <Image src={candidatePhoto} alt="" size='medium' rounded/>
+					  </div>
             <Message error header="Oops!" content={this.state.errorMessage} />
             <Button
               fluid
