@@ -63,8 +63,7 @@ class NewCandidate extends React.Component {
                         <Form.Field>
                             <label>Photo</label>
                             <input type ="file" placeholder='Candidate Photo'
-                            value = {this.state.candidatePhoto}
-                            onChange={event => this.setState({ candidatePhoto: event.target.value })} 
+                            onChange={event => this.setState({ candidatePhoto:  event.target.files[0] })} 
                             />
                         </Form.Field>
                         <Message error header="Oops!" content={this.state.errorMessage} />
