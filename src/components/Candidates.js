@@ -6,6 +6,11 @@ import "../static/candidate_styles.css";
 import axios from "axios";
 
 class Candidates extends Component {
+  componentDidMount() {
+    console.log(this.props.token);
+    alert(this.props.candidates);
+  }
+
   vote = (event) => {
     swal({
       title: "Are you sure?",
@@ -124,14 +129,14 @@ class Candidates extends Component {
                         {/* Candidate Avatar */}
                         <div className="advisor_thumb">
                           <img
-                            src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                            alt=""
+                            //src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                            src={candidate.photo}
                           />
                         </div>
                         {/* Candidate Details */}
                         <div className="single_advisor_details_info">
                           <h6>{candidate.name}</h6>
-                          <p className="designation">Candidate symbol</p>
+                          <p className="designation">{candidate.symbol}</p>
                         </div>
                       </div>
                     </div>

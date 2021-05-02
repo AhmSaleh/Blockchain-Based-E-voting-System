@@ -5,6 +5,7 @@ import web3 from "../web3";
 import ballot from "../ballot";
 import Layout from "./Layout";
 import swal from "sweetalert";
+import axios from "axios";
 
 class NewCandidate extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class NewCandidate extends React.Component {
     this.setState({ errorMessage: "", loading: true });
 
     console.log(this.state.candidatePhoto);
-    try {
+    /*try {
       const accounts = await web3.eth.getAccounts();
 
       await ballot.methods.addCandidate(this.state.candidateName).send({
@@ -30,9 +31,9 @@ class NewCandidate extends React.Component {
       });
     } catch (err) {
       this.setState({ errorMessage: err.message });
-    }
+    }*/
 
-    this.setState({ loading: false });
+    //this.setState({ loading: false });
 
     // TODO: Insert the new Candidate info into DB
     // To access these variables just write
@@ -44,12 +45,7 @@ class NewCandidate extends React.Component {
     };
 
     axios
-      .post("http://localhost:5000/api/candidates", param, {
-        headers: {
-          "x-auth-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDdiMDI5NjA5MDc5OTczYTA1OGNkZDAiLCJpc0FkbWluIjp0cnVlLCJoYXNWb3RlZCI6ZmFsc2UsImlhdCI6MTYxOTY5OTU1OX0.cKcjFm-rkAwpCB_eXjoM85o_yChY-Ew4fnaaM2MpsGs",
-        },
-      })
+      .post("http://localhost:5000/api/candidates", param)
       .then((res) => {
         if (res.status === 200) {
           swal(

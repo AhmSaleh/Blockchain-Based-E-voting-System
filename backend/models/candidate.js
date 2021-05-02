@@ -8,26 +8,13 @@ const candidateSchema = new mongoose.Schema({
     maxlength: 50,
     required: true,
   },
-  symbol: {
-    type: new mongoose.Schema({
-      name: String,
-      image: Buffer,
-    }),
-  },
-  photo: {
-    type: new mongoose.Schema({
-      name: String,
-      image: Buffer,
-    }),
-  },
+  symbol: String,
+  photo: String,
   votesInLatestElection: Number,
-  isInTheCurrentElection: {
-    type: Boolean,
-    default: false,
-  },
+  index: Number,
 });
 
-const Candidate = mongoose.model("Cadidate", candidateSchema);
+const Candidate = mongoose.model("Candidate", candidateSchema);
 
 exports.Candidate = Candidate;
 exports.candidateSchema = candidateSchema;

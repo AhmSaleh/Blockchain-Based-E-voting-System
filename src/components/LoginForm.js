@@ -16,7 +16,6 @@ const parseJwt = (token) => {
 };
 
 class LoginForm extends Component {
-  
   login = (event) => {
     event.preventDefault();
 
@@ -33,7 +32,7 @@ class LoginForm extends Component {
           this.props.tokenHandler(token);
           const tokenInfo = parseJwt(token);
           swal("Success!", "You've been logged in successfully!", "success");
-          if (tokenInfo.isAdmin) window.location.pathname = "/newcandidate";
+          if (tokenInfo.isAdmin) window.location.pathname = "/admin";
           else window.location.pathname = "/candidates";
         }
       })
@@ -71,7 +70,6 @@ class LoginForm extends Component {
         </head>
 
         <body>
-
           {/* TODO: Remove this button, It was used to test setting state
           // between different components. */}
           {/* <Button onClick={this.testBtnFunc}>YOOOO</Button> */}

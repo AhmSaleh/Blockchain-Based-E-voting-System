@@ -6,11 +6,20 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 
 //Add a Candidate to the election
-router.post("/", [auth, admin], async (req, res) => {
+router.post("/", async (req, res) => {
+  let index;
+  const finalCandidate = await Candidate.findOne().sort({ _id: -1 });
+  if (!finalCandidate) index = 0;
+  else index = finalCandidate.index + 1;
   const user = new Candidate({
     name: req.body.name,
+    symbol: req.body.symbol,
+    photo: req.body.photo,
+    index: index,
   });
+  //console.log(req.body.name, req.body.symbol, req.body.photo, index);
   await user.save();
+  //return res.status(405).send("lol");
   res.send(user);
 });
 
@@ -25,9 +34,10 @@ router.delete("/:id", [auth, admin], async (req, res) => {
 });
 
 //Get all candidates from the Database
-router.get("/", auth, async (req, res) => {
-  const candidates = await Candidate.find().select("name -_id");
+router.get("/", async (req, res) => {
+  const candidates = await Candidate.find();
   if (!candidates) return res.status(404).send("No candidates exist");
+  //console.log(candidates);
   res.send(candidates);
 });
 module.exports = router;
