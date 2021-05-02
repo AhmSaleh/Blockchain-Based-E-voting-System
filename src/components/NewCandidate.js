@@ -6,34 +6,45 @@ import ballot from "../ballot";
 import Layout from "./Layout";
 import swal from "sweetalert";
 import axios from "axios";
+import jwt from "jsonwebtoken";
 
 class NewCandidate extends React.Component {
+  async componentDidMount() {
+    //if (!this.props.token) swal("Error!", "Unauthenticated!", "error");
+  }
+
   state = {
     candidateName: "",
     candidateSymbol: "",
     candidatePhoto: "",
     errorMessage: "",
     loading: false,
+    index: -1,
   };
 
   onSubmit = async (event) => {
     event.preventDefault();
 
-    this.setState({ errorMessage: "", loading: true });
+    const storeInBlockchain = async () => {
+      this.setState({ errorMessage: "", loading: true });
+      try {
+        const accounts = await web3.eth.getAccounts();
 
-    console.log(this.state.candidatePhoto);
-    /*try {
-      const accounts = await web3.eth.getAccounts();
-
-      await ballot.methods.addCandidate(this.state.candidateName).send({
-        from: accounts[0],
-        gas: 1000000,
-      });
-    } catch (err) {
-      this.setState({ errorMessage: err.message });
-    }*/
-
-    //this.setState({ loading: false });
+        await ballot.methods.addCandidate(this.state.candidateName).send({
+          from: accounts[0],
+          gas: 1000000,
+        });
+        this.setState({ loading: false });
+        swal(
+          "Success!",
+          "Candidate added to the election successfully!",
+          "success"
+        );
+        window.location.pathname = "/newcandidate";
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
 
     // TODO: Insert the new Candidate info into DB
     // To access these variables just write
@@ -48,12 +59,8 @@ class NewCandidate extends React.Component {
       .post("http://localhost:5000/api/candidates", param)
       .then((res) => {
         if (res.status === 200) {
-          swal(
-            "Success!",
-            "Candidate added to the election successfully!",
-            "success"
-          );
-          window.location.pathname = "/admin";
+          this.setState({ index: res.index });
+          storeInBlockchain();
         } else if (res.status === 401)
           swal("Error!", "Unauthenticated!", "error");
         else if (res.status === 403) swal("Error!", "Unauthorized!", "error");

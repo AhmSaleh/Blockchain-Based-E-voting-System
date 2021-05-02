@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
+import web3 from "../web3";
+import ballot from "../ballot";
 
 const axios = require("axios");
 
@@ -20,13 +22,12 @@ class RemoveCandidate extends Component {
     });
   };
 
-  removeYesCallback = (event) => {
+  removeYesCallback = async (event) => {
     event.preventDefault();
 
-    // TODO: check if this syntax is correct (i.e. the correct index is being accessed)
+    // TODO: Pass the correct index and remove the candidate from the UI
     var candidateID = this.props.candidates[this.state.index]._id;
 
-    // TODO: check if this request syntax is correct
     axios
       .delete(`http://localhost:5000/api/candidates/${candidateID}`)
       .then((res) => {
@@ -36,6 +37,18 @@ class RemoveCandidate extends Component {
         }
       })
       .catch(() => swal("Error!", "Failed to remove candidate!", "error"));
+
+    try {
+      const accounts = await web3.eth.getAccounts();
+
+      // TODO: Pass the correct index instead of 0 in ballot.methods.removeCandidate(0)
+      await ballot.methods.removeCandidate(0).send({
+        from: accounts[0],
+        gas: 1000000,
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {

@@ -38,7 +38,6 @@ class App extends Component {
       .then((res) => {
         const candidates = res.data;
         this.setState({ candidates });
-        alert(candidates);
       })
       .catch((err) => alert(err.message));
     //console.log(res.data);

@@ -6,9 +6,13 @@ import "../static/candidate_styles.css";
 import axios from "axios";
 
 class Candidates extends Component {
+  state = {
+    index: -1,
+  };
+
   componentDidMount() {
     console.log(this.props.token);
-    alert(this.props.candidates);
+    //alert(this.props.candidates);
   }
 
   vote = (event) => {
@@ -33,6 +37,8 @@ class Candidates extends Component {
     //console.log(this.state.index);
     const accounts = await web3.eth.getAccounts();
 
+    // TODO: Replace .vote(0) with .vote(index) which gets passed from the onClick with candidate.index that is
+    // initially loaded from the database at start
     await ballot.methods
       .vote(0)
       .send({
