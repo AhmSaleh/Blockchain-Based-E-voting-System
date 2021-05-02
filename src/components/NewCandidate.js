@@ -46,9 +46,6 @@ class NewCandidate extends React.Component {
       }
     };
 
-    // TODO: Insert the new Candidate info into DB
-    // To access these variables just write
-    // this.state.candidateName/candidateSymbol
     const param = {
       name: this.state.candidateName,
       symbol: this.state.candidateSymbol,
