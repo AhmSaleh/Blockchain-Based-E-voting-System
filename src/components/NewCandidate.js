@@ -40,7 +40,7 @@ class NewCandidate extends React.Component {
           "Candidate added to the election successfully!",
           "success"
         );
-        window.location.pathname = "/newcandidate";
+        window.location.pathname = "/new_candidate";
       } catch (err) {
         console.log(err.message);
       }

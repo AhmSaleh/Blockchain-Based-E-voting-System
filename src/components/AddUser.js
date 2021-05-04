@@ -1,53 +1,39 @@
+import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 
 const axios = require("axios");
 
-const RegisterForm = () => {
-  const register = (event) => {
-    event.preventDefault();
-
-    // Creating a new user
-    const param = {
-      nationalID: event.target.nationalID.value,
-      password: event.target.password.value,
-      isRegistered: true,
-      isAdmin: false,
-    };
-
-    // Calling our API to register the user
-    axios
-      .put("http://localhost:5000/api/users", param)
-      .then((res) => {
-        if (res.status === 200) {
-          // If registration was successful, send a confirmation email to the user
-          sendMail();
-        }
-      })
-      .catch(() => swal("Error!", "Registration failed!", "error"));
-  };
-
-  const sendMail = () => {   
-    const param = {
-      email: /* TODO: Get Email linked to user's account in Db (GET request? Ask for email during registration?) */ "",
-      subject: "E-Voting System Confirmation",
-      text: /* TODO: Generate a random string (using an external library?) */ "",
-      html: ""
-    };
+class AddUser extends Component {
     
-    // TODO: Check that email sending request is syntactically correct
-    axios
-      .post("http://localhost:5000/api/users/email", param)
-      .then((res) => {
-        if (res.status === 200) {
-          swal("Success!", "Please check your email for a registration code to verify your identity.", "success");
-          window.location.pathname = "/confirm";
-        }
-      })
-      .catch((err) => console.log(err.message));
-  }
+    addUser = (event) => {
+        event.preventDefault();
 
-  return (
+        // Creating a new user
+        const param = {
+        nationalID: event.target.nationalID.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+        isRegistered: true,
+        isAdmin: event.target.isAdmin.value,
+        };
+
+        /* TODO: Check if request syntax is correct,
+        and check how to pass token (it's stored in this.props.token) */
+        // Calling our API to add the user
+        axios
+        .post("http://localhost:5000/api/users", param)
+        .then((res) => {
+            if (res.status === 200) {
+            swal("Success!", "User added successfully!", "success");
+            window.location.pathname = "/admin";
+            }
+        })
+        .catch(() => swal("Error!", "Adding user failed!", "error"));
+    }
+    
+    render() {
+        return (
     <div>
       <head>
         <link
@@ -74,13 +60,13 @@ const RegisterForm = () => {
             <div className="card">
               {/* Card Header */}
               <div class="card-header">
-                <h3>Sign Up</h3>
+                <h3>Add User</h3>
               </div>
 
               {/* Card */}
               <div className="card-body">
-                {/* Registration Form */}
-                <form onSubmit={register}>
+                {/* Add User Form */}
+                <form onSubmit={this.addUser}>
                   {/* National ID Input Group */}
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -93,6 +79,22 @@ const RegisterForm = () => {
                       name="nationalID"
                       class="form-control"
                       placeholder="National ID"
+                      required
+                    ></input>
+                  </div>
+
+                {/* Email Input Group */}
+                  <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text">
+                        <i className="fas fa-envelope"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      name="email"
+                      class="form-control"
+                      placeholder="Email"
                       required
                     ></input>
                   </div>
@@ -113,22 +115,28 @@ const RegisterForm = () => {
                     ></input>
                   </div>
 
-                  {/* Register Button */}
+                  {/* isAdmin Input Group */}
+                  <div>
+                    <div className="input-group-prepend">
+                      <span className="input-group-text" style={{width: "10%"}}>
+                        <i className="fas fa-user-cog"></i>
+                      </span>
+                    </div>
+                    <div className="row align-items-center remember">
+                      <input name="isAdmin" type="checkbox" value="true"></input>
+                      <label htmlFor="isAdmin">Is Admin?</label>
+                    </div>
+                  </div>
+
+                  {/* Add User Button */}
                   <div className="form-group">
                     <input
                       type="submit"
-                      value="Register"
+                      value="Add"
                       class="btn float-right login_btn"
                     />
                   </div>
                 </form>
-              </div>
-
-              {/* Card Footer */}
-              <div className="card-footer">
-                <div className="d-flex justify-content-center links">
-                  Already have an account?<Link to="/login"> Login</Link>
-                </div>
               </div>
             </div>
           </div>
@@ -136,6 +144,7 @@ const RegisterForm = () => {
       </body>
     </div>
   );
-};
+    }
+}
 
-export default RegisterForm;
+export default AddUser

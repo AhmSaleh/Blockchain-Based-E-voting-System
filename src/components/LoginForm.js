@@ -41,13 +41,6 @@ class LoginForm extends Component {
       });
   };
 
-  // TODO: Remove this fucntion. It was used to test setting state
-  // between different components.
-  // ============================================
-  // testBtnFunc = () => {
-  //   this.props.testPropHandler("TEST LMFAOOOO");
-  // }
-
   render() {
     return (
       <div>
@@ -70,10 +63,6 @@ class LoginForm extends Component {
         </head>
 
         <body>
-          {/* TODO: Remove this button, It was used to test setting state
-          // between different components. */}
-          {/* <Button onClick={this.testBtnFunc}>YOOOO</Button> */}
-
           <div className="container" style={{ margin: "auto", width: "auto" }}>
             <div className="d-flex justify-content-center h-100">
               <div className="card">

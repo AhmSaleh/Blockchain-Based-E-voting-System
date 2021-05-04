@@ -5,12 +5,16 @@ class Admin extends Component {
 
     // Navigating to the NewCandidate.js component
     addCandidate = () => {
-        window.location.pathname="/newcandidate"
+        window.location.pathname="/new_candidate"
     }
 
     // Navigating to the RemoveCandidate.js component
     removeCandidate = () => {
-        window.location.pathname="/removecandidate"
+        window.location.pathname="/remove_candidate"
+    }
+
+    addUser = () => {
+        window.location.pathname="/add_user"
     }
 
     /* TODO: This function should start a new election 
@@ -61,6 +65,13 @@ class Admin extends Component {
                         {/* Ending Election Button */}
                         <div className="col-12 col-sm-6 col-lg-1">
                             <button className="btn btn-danger rounded-pill" onClick={this.endElection}>End Election</button>
+                        </div>
+                    </div>
+
+                    <div className="row justify-content-center">
+                        {/* Adding User Button */}
+                        <div className="col-12 col-sm-6 col-lg-1">
+                            <button className="btn btn-primary rounded-pill" onClick={this.addUser}>Add User</button>
                         </div>
                     </div>
                 </body>

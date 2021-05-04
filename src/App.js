@@ -7,6 +7,8 @@ import Candidates from "./components/Candidates";
 import Admin from "./components/Admin";
 import NewCandidate from "./components/NewCandidate";
 import RemoveCandidate from "./components/RemoveCandidate";
+import AddUser from "./components/AddUser";
+import ConfirmEmail from "./components/ConfirmEmail";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 const axios = require("axios");
 
@@ -74,8 +76,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* TODO: Remove the second prop (testPropHanlder) from the LoginForm component. It was used to test setting state
-        // between different components. */}
           <Route
             path="/login"
             render={() => (
@@ -84,22 +84,37 @@ class App extends Component {
                 <LoginForm
                   tokenHandler={
                     this.handleTokenChange
-                  } /*testPropHandler={this.handleTestPropChange}*/
+                  }
                 />{" "}
               </>
             )}
           />
           <Route path="/register" component={RegisterForm} />
           <Route path="/admin" component={Admin} />
-          <Route path="/newcandidate" component={NewCandidate} />
+          <Route path="/new_candidate" render={() => (
+              <>
+                <NewCandidate
+                  token={this.state.token}
+                />
+              </>
+            )}
+            />
           <Route
-            path="/removecandidate"
+            path="/remove_candidate"
             render={() => (
               <>
-                <RemoveCandidate candidates={this.state.candidates} />
+                <RemoveCandidate candidates={this.state.candidates}  token={this.state.token}/>
               </>
             )}
           />
+          <Route path="/add_user" render={() => (
+              <>
+                <AddUser
+                  token={this.state.token}
+                />
+              </>
+            )}
+            />
           <Route
             path="/candidates"
             render={() => (
@@ -112,6 +127,7 @@ class App extends Component {
               </>
             )}
           />
+          <Route path="/confirm" component={ConfirmEmail} />
         </div>
       </Router>
     );

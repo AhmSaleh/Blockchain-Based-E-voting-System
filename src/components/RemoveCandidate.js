@@ -26,21 +26,32 @@ class RemoveCandidate extends Component {
         });
   }
 
-  removeYesCallback = (index, event) => {
-      event.PreventDefault();
+  removeYesCallback = async (index, event) => {
+    event.PreventDefault();
 
-      // TODO: check if this syntax is correct (i.e. the correct index is being accessed)
-      var candidateID = this.props.candidates[index].id;
+    // TODO: check if this syntax is correct (i.e. the correct index is being accessed)
+    var candidateID = this.props.candidates[index].id;
 
-      axios.delete('http://localhost:5000/api/candidates/{id}', candidateID)
-      .then((res) => {
-          if(res.status === 200)
-          {
-              swal("Success!", "Candidate removed successfully!", "success");
-              window.location.pathname="/removecandidate";
+    axios.delete('http://localhost:5000/api/candidates/{id}', candidateID)
+    .then(async (res) => {
+      if(res.status === 200)
+      {
+        try {
+          const accounts = await web3.eth.getAccounts();
+
+          await ballot.methods.removeCandidate(index).send({
+            from: accounts[0],
+            gas: 1000000,
+          });
+        } catch (err) {
+            console.log(err);
           }
-      })
-      .catch(() => swal("Error!", "Failed to remove candidate!", "error"));
+
+      swal("Success!", "Candidate removed successfully!", "success");
+      window.location.pathname="/remove_candidate";
+      }
+    })
+    .catch(() => swal("Error!", "Failed to remove candidate!", "error"));
   };
 
   render() {
@@ -141,6 +152,8 @@ class RemoveCandidate extends Component {
                   </div>
                 </div>
               </div>
+              {/* ==================================================== */}  
+
             </div>
           </div>
         </body>
