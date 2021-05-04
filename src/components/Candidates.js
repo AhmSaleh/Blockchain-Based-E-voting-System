@@ -15,7 +15,7 @@ class Candidates extends Component {
     //alert(this.props.candidates);
   }
 
-  vote = (event) => {
+  vote = (index, event) => {
     swal({
       title: "Are you sure?",
       text: "Once your vote has been cast, it cannot be changed!",
@@ -24,23 +24,23 @@ class Candidates extends Component {
       dangerMode: true,
     }).then((willVote) => {
       if (willVote) {
-        this.voteYesCallback(event);
+        this.voteYesCallback(index, event);
+        //swal("Candidate Index: " + index);
       } else {
         swal("You did not cast a vote.");
       }
     });
   };
 
-  voteYesCallback = async (event) => {
+  voteYesCallback = async (index, event) => {
     event.preventDefault();
 
-    //console.log(this.state.index);
     const accounts = await web3.eth.getAccounts();
 
     // TODO: Replace .vote(0) with .vote(index) which gets passed from the onClick with candidate.index that is
     // initially loaded from the database at start
     await ballot.methods
-      .vote(0)
+      .vote(index)
       .send({
         from: accounts[0],
         gas: "100000",
@@ -69,7 +69,7 @@ class Candidates extends Component {
           swal("Success!", "Your vote has been cast successfully", "success");
         else if (res.status === 404) swal("Error!", "User not found", "error");
       })
-      .catch((err) =>
+      .catch(() =>
         swal("Error!", "Failed to vote, please try again later", "error")
       );
   };
@@ -119,7 +119,7 @@ class Candidates extends Component {
 
             <div className="row">
               {this.props.candidates.length > 0
-                ? this.props.candidates.map((candidate) => (
+                ? this.props.candidates.map((candidate, index) => (
                     // Candidate
                     <div className="col-12 col-sm-6 col-lg-3">
                       <div
@@ -130,7 +130,9 @@ class Candidates extends Component {
                           animationDelay: 0.2,
                           animationName: "fadeInUp",
                         }}
-                        onClick={this.vote}
+                        onClick={() => this.vote(index)}
+                        key={index}
+                        data-index={index}
                       >
                         {/* Candidate Avatar */}
                         <div className="advisor_thumb">

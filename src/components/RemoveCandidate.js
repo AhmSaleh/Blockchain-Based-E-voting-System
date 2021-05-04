@@ -6,49 +6,41 @@ import ballot from "../ballot";
 const axios = require("axios");
 
 class RemoveCandidate extends Component {
-  remove = (event) => {
-    swal({
-      title: "Are you sure?",
-      text: "Once the candidate is removed, your action cannot be undone!",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    }).then((willRemove) => {
-      if (willRemove) {
-        this.removeYesCallback(event);
-      } else {
-        swal("Candidate not removed.");
-      }
-    });
-  };
+  
+  remove = (index, event) => {
+      swal({
+          title: "Are you sure?",
+          text: "Once the candidate is removed, your action cannot be undone!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willRemove) => {
+          if (willRemove) {
+              this.removeYesCallback(index, event);
+              // TODO: Remove the swal() line and uncomment the one above it
+              //swal("Candidate Index: " + event.target.getAttribute("data-index"));
+          } else {
+            swal("Candidate not removed.");
+          }
+        });
+  }
 
-  removeYesCallback = async (event) => {
-    event.preventDefault();
+  removeYesCallback = (index, event) => {
+      event.PreventDefault();
 
-    // TODO: Pass the correct index and remove the candidate from the UI
-    var candidateID = this.props.candidates[this.state.index]._id;
+      // TODO: check if this syntax is correct (i.e. the correct index is being accessed)
+      var candidateID = this.props.candidates[index].id;
 
-    axios
-      .delete(`http://localhost:5000/api/candidates/${candidateID}`)
+      axios.delete('http://localhost:5000/api/candidates/{id}', candidateID)
       .then((res) => {
-        if (res.status === 200) {
-          swal("Success!", "Candidate removed successfully!", "success");
-          window.location.pathname = "/removecandidate";
-        }
+          if(res.status === 200)
+          {
+              swal("Success!", "Candidate removed successfully!", "success");
+              window.location.pathname="/removecandidate";
+          }
       })
       .catch(() => swal("Error!", "Failed to remove candidate!", "error"));
-
-    try {
-      const accounts = await web3.eth.getAccounts();
-
-      // TODO: Pass the correct index instead of 0 in ballot.methods.removeCandidate(0)
-      await ballot.methods.removeCandidate(0).send({
-        from: accounts[0],
-        gas: 1000000,
-      });
-    } catch (err) {
-      console.log(err);
-    }
   };
 
   render() {
@@ -94,7 +86,7 @@ class RemoveCandidate extends Component {
 
             <div className="row">
               {this.props.candidates.length > 0
-                ? this.props.candidates.map((candidate) => (
+                ? this.props.candidates.map((candidate, index) => (
                     // Candidate
                     <div className="col-12 col-sm-6 col-lg-3">
                       <div
@@ -105,7 +97,9 @@ class RemoveCandidate extends Component {
                           animationDelay: 0.2,
                           animationName: "fadeInUp",
                         }}
-                        onClick={this.remove}
+                        onClick={() => this.remove(index)}
+                        key={index}
+                        data-index={index}
                       >
                         {/* Candidate Avatar */}
                         <div className="advisor_thumb">

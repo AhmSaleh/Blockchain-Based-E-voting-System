@@ -29,6 +29,8 @@ class App extends Component {
     const admin = await ballot.methods.admin().call();
     this.setState({ admin });
     this.getCandidates();
+    // TODO: Remove the getCandidatesTest as it was made for testing
+    //this.getCandidatesTest();
   }
 
   // This function should handle getting all candidates from the Db
@@ -45,6 +47,19 @@ class App extends Component {
     //this.setState({ candidates });
   }
 
+  // TODO: Remove this function
+  // getCandidatesTest(){
+  //   var candidates = [
+  //     {name: "Bola", symbol: "Gaeming"},
+  //     {name: "Saleh", symbol: "Lenox"},
+  //     {name: "Martini", symbol: "EZ"},
+  //     {name: "Khedr", symbol: "NoFranco"},
+  //     {name: "Joe", symbol: "Clownery"}
+  //   ]
+
+  //   this.setState({ candidates }, () => {});
+  // }
+
   handleTokenChange = (token) => {
     //alert("BEFORE SETTING STATE " + token);
     this.setState({ token }, () => {
@@ -54,16 +69,6 @@ class App extends Component {
     //alert("SETTING STATE " + this.state.candidates);
     //console.log(this.state.candidates);
   };
-
-  // TODO: Remove this function. It was used to test setting state
-  // between different components.
-  //=======================================
-  // handleTestPropChange = (testProp) => {
-  //   alert("FIRST " + testProp);
-  //   this.setState({ testProp }, () => {
-  //     alert("AFTER STATE CHANGE " + this.state.testProp);
-  //   });
-  // }
 
   render() {
     return (
