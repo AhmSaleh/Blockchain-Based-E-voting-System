@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import atob from "atob";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+import Layout from "./Layout";
 
 const axios = require("axios");
 
@@ -57,6 +60,7 @@ class AddUser extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <head>
           <link
@@ -157,6 +161,7 @@ class AddUser extends Component {
           </div>
         </body>
       </div>
+      </Layout>
     );
   }
 }

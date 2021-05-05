@@ -5,6 +5,9 @@ import swal from "sweetalert";
 import "../static/candidate_styles.css";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+import Layout from "./Layout";
 
 class Candidates extends Component {
   checkIfAuthenticated() {
@@ -92,6 +95,7 @@ class Candidates extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <head>
           <link
@@ -196,6 +200,7 @@ class Candidates extends Component {
           </div>
         </body>
       </div>
+      </Layout>
     );
   }
 }

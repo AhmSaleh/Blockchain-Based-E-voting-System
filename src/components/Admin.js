@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
 import atob from "atob";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+import Layout from "./Layout";
 
 class Admin extends Component {
   checkIfAuthenticated = () => {
@@ -58,6 +61,7 @@ class Admin extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <head>
           <link
@@ -129,6 +133,7 @@ class Admin extends Component {
           </div>
         </body>
       </div>
+      </Layout>
     );
   }
 }

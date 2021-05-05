@@ -6,11 +6,12 @@ export default (props) =>{
     return (
         <div>
         <Footer
+            style={{position:"fixed", width:"100%", bottom:0, height:"150px"}}
             className="footer"
             columns={[
             {
               icon: (
-                <img src="https://www.flaticon.com/svg/vstatic/svg/3661/3661733.svg?token=exp=1619391411~hmac=21fcd2d91c800f34ded6dd598fb59a2c" />
+                <img src="https://www.flaticon.com/svg/vstatic/svg/2152/2152539.svg?token=exp=1620231419~hmac=da2b1efbe77f01b82b8b5997fbaadf09" />
               ),
               title: 'Blockchain',
               url: 'https://yuque.com',
