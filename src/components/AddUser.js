@@ -37,7 +37,7 @@ class AddUser extends Component {
       nationalID: event.target.nationalID.value,
       email: event.target.email.value,
       isRegistered: false,
-      isAdmin: event.target.isAdmin.value === "true" ? true : false,
+      isAdmin: document.getElementById("isAdmin").checked,
     };
 
     axios
@@ -134,9 +134,9 @@ class AddUser extends Component {
                       </div>
                       <div className="row align-items-center remember">
                         <input
+                          id="isAdmin"
                           name="isAdmin"
                           type="checkbox"
-                          value="true"
                         ></input>
                         <label htmlFor="isAdmin">Is Admin?</label>
                       </div>
