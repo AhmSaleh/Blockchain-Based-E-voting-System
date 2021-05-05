@@ -52,7 +52,7 @@ class Candidates extends Component {
   };
 
   voteYesCallback = async (index, event) => {
-    event.preventDefault();
+    //event.preventDefault();
 
     const accounts = await web3.eth.getAccounts();
 
