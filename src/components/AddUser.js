@@ -81,7 +81,7 @@ class AddUser extends Component {
         </head>
 
         <body>
-          <div className="container" style={{ margin: "auto", width: "auto" }}>
+        <div className="container" style={{ marginTop: "100px", width: "auto" }}>
             {/* Card Container */}
             <div className="d-flex justify-content-center h-100">
               <div className="card">
