@@ -15,7 +15,7 @@ const nodemailer = require("nodemailer");
 const config = require("config");
 
 //Add a user to the Database so that this certain user could register using their national ID
-router.post("/", [auth, admin], async (req, res) => {
+router.post("/", /*[auth, admin],*/ async (req, res) => {
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

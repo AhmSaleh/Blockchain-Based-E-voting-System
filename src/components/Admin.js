@@ -69,24 +69,31 @@ class Admin extends Component {
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
             rel="stylesheet"
           />
+          <link
+            href="../static/button_styles.css"
+            rel="stylesheet"
+          />
         </head>
 
         <body>
-          <div className="row justify-content-center">
+          <div className="container" style={{width: "20%", margin: "auto", padding: "50px"}} >
+            <div className="col justify-content-center">
             {/* Adding Candidate Button */}
             <div className="col-12 col-sm-6 col-lg-1">
               <button
-                className="btn btn-primary rounded-pill"
+                className="btn btn-primary btn-lg btn3d"
                 onClick={this.addCandidate}
               >
                 Add Candidate
               </button>
             </div>
 
+            <br/>
+
             {/* Removing Candidate Button */}
             <div className="col-12 col-sm-6 col-lg-1">
               <button
-                className="btn btn-danger rounded-pill"
+                className="btn btn-danger btn-lg btn3d"
                 onClick={this.removeCandidate}
               >
                 Remove Candidate
@@ -96,38 +103,29 @@ class Admin extends Component {
 
           <br />
 
-          <div className="row justify-content-center">
-            {/* Starting Election Button */}
+          <div className="col justify-content-center">
+            {/* Adding User Button */}
             <div className="col-12 col-sm-6 col-lg-1">
               <button
-                className="btn btn-primary rounded-pill"
-                onClick={this.startElection}
+                className="btn btn-primary btn-lg btn3d"
+                onClick={this.addUser}
               >
-                Start Election
+                Add User
               </button>
             </div>
 
+            <br/>
+            
             {/* Ending Election Button */}
             <div className="col-12 col-sm-6 col-lg-1">
               <button
-                className="btn btn-danger rounded-pill"
+                className="btn btn-danger btn-lg btn3d"
                 onClick={this.endElection}
               >
                 End Election
               </button>
             </div>
           </div>
-
-          <div className="row justify-content-center">
-            {/* Adding User Button */}
-            <div className="col-12 col-sm-6 col-lg-1">
-              <button
-                className="btn btn-primary rounded-pill"
-                onClick={this.addUser}
-              >
-                Add User
-              </button>
-            </div>
           </div>
         </body>
       </div>

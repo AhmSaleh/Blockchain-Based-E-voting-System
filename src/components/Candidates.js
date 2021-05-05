@@ -124,8 +124,8 @@ class Candidates extends Component {
                     animationName: "fadeInUp",
                   }}
                 >
-                  <h3>Candidates</h3>
-                  <p>
+                  <h3 style={{fontSize: "40px"}}>Candidates</h3>
+                  <p style={{fontSize: "25px"}} >
                     Please cast your vote for one of the available candidates.
                   </p>
                   <div className="line"></div>
