@@ -485,3 +485,78 @@
 {"message":"Connected to the Database successfully!","level":"info"}
 {"message":"Listening on port: 5000","level":"info"}
 {"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"code":"EAUTH","response":"535 5.7.3 Authentication unsuccessful [MR2P264CA0102.FRAP264.PROD.OUTLOOK.COM]","responseCode":535,"command":"AUTH LOGIN","level":"error","message":"Invalid login: 535 5.7.3 Authentication unsuccessful [MR2P264CA0102.FRAP264.PROD.OUTLOOK.COM] Invalid login: 535 5.7.3 Authentication unsuccessful [MR2P264CA0102.FRAP264.PROD.OUTLOOK.COM]","stack":"Error: Invalid login: 535 5.7.3 Authentication unsuccessful [MR2P264CA0102.FRAP264.PROD.OUTLOOK.COM]\n    at SMTPConnection._formatError (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:774:19)\n    at SMTPConnection._actionAUTHComplete (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1513:34)\n    at SMTPConnection.<anonymous> (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1471:18)\n    at SMTPConnection._processResponse (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:932:20)\n    at SMTPConnection._onData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:739:14)\n    at TLSSocket.SMTPConnection._onSocketData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:189:44)\n    at TLSSocket.emit (events.js:315:20)\n    at addChunk (internal/streams/readable.js:309:12)\n    at readableAddChunk (internal/streams/readable.js:284:9)\n    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"errors":{"name":{"name":"ValidatorError","message":"Path `name` (`H`) is shorter than the minimum allowed length (3).","properties":{"message":"Path `name` (`H`) is shorter than the minimum allowed length (3).","type":"minlength","minlength":3,"path":"name","value":"H"},"kind":"minlength","path":"name","value":"H"}},"_message":"Candidate validation failed","level":"error","message":"Candidate validation failed: name: Path `name` (`H`) is shorter than the minimum allowed length (3). Candidate validation failed: name: Path `name` (`H`) is shorter than the minimum allowed length (3).","stack":"ValidationError: Candidate validation failed: name: Path `name` (`H`) is shorter than the minimum allowed length (3).\n    at model.Document.invalidate (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\document.js:2703:32)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\document.js:2523:17\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\schematype.js:1256:9\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"stringValue":"\"{ _id: undefined }\"","kind":"ObjectId","value":{},"path":"_id","reason":{},"level":"error","message":"Cast to ObjectId failed for value \"{ _id: undefined }\" at path \"_id\" for model \"Candidate\" Cast to ObjectId failed for value \"{ _id: undefined }\" at path \"_id\" for model \"Candidate\"","stack":"CastError: Cast to ObjectId failed for value \"{ _id: undefined }\" at path \"_id\" for model \"Candidate\"\n    at model.Query.exec (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:4408:21)\n    at model.Query.Query.then (E:\\Blockchain-Based-E-voting-System\\node_modules\\mongoose\\lib\\query.js:4502:15)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"code":"EENVELOPE","command":"API","level":"error","message":"No recipients defined No recipients defined","stack":"Error: No recipients defined\n    at SMTPConnection._formatError (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:774:19)\n    at SMTPConnection._setEnvelope (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:985:34)\n    at SMTPConnection.send (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:605:14)\n    at sendMessage (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:227:28)\n    at E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-transport\\index.js:285:25\n    at SMTPConnection._actionAUTHComplete (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1527:9)\n    at SMTPConnection.<anonymous> (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:1471:18)\n    at SMTPConnection._processResponse (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:932:20)\n    at SMTPConnection._onData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:739:14)\n    at TLSSocket.SMTPConnection._onSocketData (E:\\Blockchain-Based-E-voting-System\\node_modules\\nodemailer\\lib\\smtp-connection\\index.js:189:44)\n    at TLSSocket.emit (events.js:315:20)\n    at addChunk (internal/streams/readable.js:309:12)\n    at readableAddChunk (internal/streams/readable.js:284:9)\n    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)\n    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"level":"error","message":"Cannot read property 'details' of undefined Cannot read property 'details' of undefined","stack":"TypeError: Cannot read property 'details' of undefined\n    at E:\\Blockchain-Based-E-voting-System\\backend\\routes\\users.js:55:23\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}

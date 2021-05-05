@@ -6,11 +6,30 @@ import ballot from "../ballot";
 import Layout from "./Layout";
 import swal from "sweetalert";
 import axios from "axios";
-import jwt from "jsonwebtoken";
+import atob from "atob";
 
 class NewCandidate extends React.Component {
-  async componentDidMount() {
-    //if (!this.props.token) swal("Error!", "Unauthenticated!", "error");
+  checkIfAuthenticated() {
+    const token = localStorage.getItem("token");
+    let decoded;
+    if (!token) {
+      swal("Error!", "Unauthenticated!", "error");
+      window.location.pathname = "/login";
+    }
+    try {
+      decoded = JSON.parse(atob(token.split(".")[1]));
+    } catch (err) {
+      console.log(err.message);
+      swal("Error!", "An error has occured!", "error");
+      window.location.pathname = "/login";
+    }
+    if (!decoded.isAdmin) {
+      swal("Error!", "Unauthorized!", "error");
+      window.location.pathname = "/login";
+    }
+  }
+  componentDidMount() {
+    this.checkIfAuthenticated();
   }
 
   state = {
@@ -53,7 +72,11 @@ class NewCandidate extends React.Component {
     };
 
     axios
-      .post("http://localhost:5000/api/candidates", param)
+      .post("http://localhost:5000/api/candidates", param, {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
       .then((res) => {
         if (res.status === 200) {
           this.setState({ index: res.index });

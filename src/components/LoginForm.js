@@ -29,7 +29,7 @@ class LoginForm extends Component {
       .then((res) => {
         if (res.status === 200) {
           const token = res.data;
-          this.props.tokenHandler(token);
+          localStorage.setItem("token", token);
           const tokenInfo = parseJwt(token);
           swal("Success!", "You've been logged in successfully!", "success");
           if (tokenInfo.isAdmin) window.location.pathname = "/admin";

@@ -8,44 +8,41 @@ const RegisterForm = () => {
     event.preventDefault();
 
     // Creating a new user
-    const param = {
-      nationalID: event.target.nationalID.value,
-      password: event.target.password.value,
-      isRegistered: true,
-      isAdmin: false,
-    };
+    localStorage.setItem("nationalID", event.target.nationalID.value);
+    localStorage.setItem("password", event.target.password.value);
 
-    // Calling our API to register the user
+    // Calling our API to get the user
     axios
-      .put("http://localhost:5000/api/users", param)
+      .get(`http://localhost:5000/api/users/${param.nationalID}`, "")
       .then((res) => {
         if (res.status === 200) {
-          // If registration was successful, send a confirmation email to the user
-          sendMail();
+          sendMail(res.data);
         }
       })
-      .catch(() => swal("Error!", "Registration failed!", "error"));
+      .catch((err) => console.log(err.message));
   };
 
-  const sendMail = () => {   
+  const sendMail = (email) => {
+    localStorage.setItem("code", Math.floor(Math.random() * 10000000000 + 1));
     const param = {
-      email: /* TODO: Get Email linked to user's account in Db (GET request? Ask for email during registration?) */ "",
+      email: email,
       subject: "E-Voting System Confirmation",
-      text: /* TODO: Generate a random string (using an external library?) */ "",
-      html: ""
+      text: "This is your code",
+      html: `<p>Your confirmation code is <strong>${localStorage.getItem(
+        "code"
+      )}</strong></p>`,
     };
-    
-    // TODO: Check that email sending request is syntactically correct
+
+    //Send an Email to the user with the confirmation code
     axios
       .post("http://localhost:5000/api/users/email", param)
       .then((res) => {
         if (res.status === 200) {
-          swal("Success!", "Please check your email for a registration code to verify your identity.", "success");
           window.location.pathname = "/confirm";
         }
       })
-      .catch((err) => console.log(err.message));
-  }
+      .catch(() => swal("Error!", "An error has occured", "error"));
+  };
 
   return (
     <div>

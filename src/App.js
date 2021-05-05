@@ -31,8 +31,6 @@ class App extends Component {
     const admin = await ballot.methods.admin().call();
     this.setState({ admin });
     this.getCandidates();
-    // TODO: Remove the getCandidatesTest as it was made for testing
-    //this.getCandidatesTest();
   }
 
   // This function should handle getting all candidates from the Db
@@ -44,32 +42,10 @@ class App extends Component {
         this.setState({ candidates });
       })
       .catch((err) => alert(err.message));
-    //console.log(res.data);
-    //const candidates = res.data;
-    //this.setState({ candidates });
   }
 
-  // TODO: Remove this function
-  // getCandidatesTest(){
-  //   var candidates = [
-  //     {name: "Bola", symbol: "Gaeming"},
-  //     {name: "Saleh", symbol: "Lenox"},
-  //     {name: "Martini", symbol: "EZ"},
-  //     {name: "Khedr", symbol: "NoFranco"},
-  //     {name: "Joe", symbol: "Clownery"}
-  //   ]
-
-  //   this.setState({ candidates }, () => {});
-  // }
-
   handleTokenChange = (token) => {
-    //alert("BEFORE SETTING STATE " + token);
-    this.setState({ token }, () => {
-      //alert("AFTER SETTING STATE " + token);
-    });
-    //alert("SETTING STATE " + this.state.token);
-    //alert("SETTING STATE " + this.state.candidates);
-    //console.log(this.state.candidates);
+    this.setState({ token });
   };
 
   render() {
@@ -80,41 +56,56 @@ class App extends Component {
             path="/login"
             render={() => (
               <>
-                {" "}
                 <LoginForm
-                  tokenHandler={
-                    this.handleTokenChange
-                  }
-                />{" "}
-              </>
-            )}
-          />
-          <Route path="/register" component={RegisterForm} />
-          <Route path="/admin" component={Admin} />
-          <Route path="/new_candidate" render={() => (
-              <>
-                <NewCandidate
+                  tokenHandler={this.handleTokenChange}
                   token={this.state.token}
                 />
               </>
             )}
-            />
+          />
+          <Route
+            path="/register"
+            render={() => (
+              <>
+                <RegisterForm token={this.state.token} />
+              </>
+            )}
+          />
+          <Route
+            path="/admin"
+            render={() => (
+              <>
+                <Admin token={this.state.token} />
+              </>
+            )}
+          />
+          <Route
+            path="/new_candidate"
+            render={() => (
+              <>
+                <NewCandidate token={this.state.token} />
+              </>
+            )}
+          />
           <Route
             path="/remove_candidate"
             render={() => (
               <>
-                <RemoveCandidate candidates={this.state.candidates}  token={this.state.token}/>
-              </>
-            )}
-          />
-          <Route path="/add_user" render={() => (
-              <>
-                <AddUser
+                <RemoveCandidate
+                  candidates={this.state.candidates}
                   token={this.state.token}
                 />
               </>
             )}
-            />
+          />
+          <Route
+            path="/add_user"
+            render={() => (
+              <>
+                <AddUser token={this.state.token} />
+              </>
+            )}
+          />
           <Route
             path="/candidates"
             render={() => (

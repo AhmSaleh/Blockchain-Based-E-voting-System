@@ -54,6 +54,7 @@ function validateUser(user) {
     nationalID: Joi.string().required().length(14),
     isRegistered: Joi.bool(),
     email: Joi.string().min(6).max(200).email(),
+    isAdmin: Joi.bool(),
   });
   return schema.validate(user);
 }

@@ -42,6 +42,7 @@ router.put("/", async (req, res) => {
   //Check if the user exists in the Database and is not already registered
   let user = await User.findOne({ nationalID: req.body.nationalID }).select({
     isRegistered: 1,
+    email: 1,
   });
   if (!user)
     return res
@@ -59,6 +60,11 @@ router.put("/", async (req, res) => {
   await user.save();
   const token = user.generateAuthToken();
   res.header("x-auth-token", token).send(_.pick(user, ["_id"]));
+});
+
+router.get("/:id", async (req, res) => {
+  const user = await User.findOne({ nationalID: req.params.id });
+  res.send(user.email);
 });
 
 //Change the hasVoted value to true when the user votes in the latest election
@@ -89,14 +95,14 @@ router.post("/email", async (req, res) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "kareem8002010@outlook.com",
+      user: "blockchain_evoting_system@outlook.com",
       pass: config.get("password"),
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
-    from: "kareem8002010@outlook.com", // sender address
+    from: "blockchain_evoting_system@outlook.com", // sender address
     to: req.body.email,
     subject: req.body.subject, // Subject line
     text: req.body.text, // plain text body

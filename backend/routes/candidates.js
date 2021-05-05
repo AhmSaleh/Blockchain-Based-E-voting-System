@@ -6,7 +6,7 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 
 //Add a Candidate to the election
-router.post("/", async (req, res) => {
+router.post("/", [auth, admin], async (req, res) => {
   let index;
   const finalCandidate = await Candidate.findOne().sort({ _id: -1 });
   if (!finalCandidate) index = 0;
@@ -17,15 +17,13 @@ router.post("/", async (req, res) => {
     photo: req.body.photo,
     index: index,
   });
-  //console.log(req.body.name, req.body.symbol, req.body.photo, index);
   await user.save();
-  //return res.status(405).send("lol");
   res.send(user);
 });
 
 //Remove a certain Candidate from the election
 router.delete("/:id", [auth, admin], async (req, res) => {
-  const user = await Candidate.findByIdAndDelete({ _id: id });
+  const user = await Candidate.findByIdAndDelete({ _id: req.params.id });
   if (!user)
     return res
       .status(404)

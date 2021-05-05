@@ -4,8 +4,27 @@ import ballot from "../ballot";
 import swal from "sweetalert";
 import "../static/candidate_styles.css";
 import axios from "axios";
+import jwt from "jsonwebtoken";
 
 class Candidates extends Component {
+  checkIfAuthenticated() {
+    const token = localStorage.getItem("token");
+    let decoded;
+    if (!token) {
+      swal("Error!", "Unauthenticated!", "error");
+      window.location.pathname = "/login";
+    }
+    try {
+      jwt.verify(token);
+    } catch (err) {
+      swal("Error!", "Unauthenticated!", "error");
+      window.location.pathname = "/login";
+    }
+  }
+  componentDidMount() {
+    this.checkIfAuthenticated();
+  }
+
   state = {
     index: -1,
   };
@@ -37,8 +56,6 @@ class Candidates extends Component {
 
     const accounts = await web3.eth.getAccounts();
 
-    // TODO: Replace .vote(0) with .vote(index) which gets passed from the onClick with candidate.index that is
-    // initially loaded from the database at start
     await ballot.methods
       .vote(index)
       .send({
@@ -60,8 +77,7 @@ class Candidates extends Component {
     axios
       .put("http://localhost:5000/api/users/voted", "", {
         headers: {
-          "x-auth-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDdiMDI5NjA5MDc5OTczYTA1OGNkZDAiLCJpc0FkbWluIjp0cnVlLCJoYXNWb3RlZCI6ZmFsc2UsImlhdCI6MTYxOTY5OTU1OX0.cKcjFm-rkAwpCB_eXjoM85o_yChY-Ew4fnaaM2MpsGs",
+          "x-auth-token": localStorage.getItem("token"),
         },
       })
       .then((res) => {
