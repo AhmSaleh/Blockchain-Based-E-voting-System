@@ -13,7 +13,10 @@ const RegisterForm = () => {
 
     // Calling our API to get the user
     axios
-      .get(`http://localhost:5000/api/users/${param.nationalID}`, "")
+      .get(
+        `http://localhost:5000/api/users/${event.target.nationalID.value}`,
+        ""
+      )
       .then((res) => {
         if (res.status === 200) {
           sendMail(res.data);
