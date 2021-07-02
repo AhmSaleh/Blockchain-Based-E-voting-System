@@ -37,7 +37,7 @@ class LoginForm extends Component {
           const tokenInfo = parseJwt(token);
           swal("Success!", "You've been logged in successfully!", "success");
           if (tokenInfo.isAdmin) window.location.pathname = "/admin";
-          else window.location.pathname = "/candidates";
+          else window.location.pathname = "/elections";
         }
       })
       .catch(() => {

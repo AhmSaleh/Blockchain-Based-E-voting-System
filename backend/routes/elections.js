@@ -8,10 +8,10 @@ const admin = require("../middleware/admin");
 //When an election has ended it post it to the Database
 router.post("/", [auth, admin], async (req, res) => {
   const election = new Election({
-    candidateWinner: req.body.candidateID,
+    candidateWinner: req.body.candidateWinner,
     candidateWinnerVotes: req.body.candidateWinnerVotes,
-    startDate: req.body.startDate,
     totalVotes: req.body.totalVotes,
+    name: req.body.name,
     candidates: req.body.candidates,
   });
 

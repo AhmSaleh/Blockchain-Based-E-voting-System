@@ -182,10 +182,10 @@ class App extends Component {
 
           {/* Election Route*/}
           <Route
-            path="/election"
-            render={() => (
+            path="/election/:id"
+            render={(routerProps) => (
               <>
-                <Election/>
+                <Election index={routerProps.match.params.id}/>
               </>
             )}
             />

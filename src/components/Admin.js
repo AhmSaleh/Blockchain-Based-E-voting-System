@@ -52,9 +52,18 @@ class Admin extends Component {
   /* TODO: This function should end an on-going election 
     by accessing the Blockchain and removing the running election*/
   endElection = () => {
-    swal("Not implemented yet!!! xD", {
-      icon: "error",
-    });
+    
+    // Retrieve Election Winner from Blockchain, then from DB using their ID/index
+
+    // Retrieve all other candidates from Database where ID/Index != ID/Index of Winner, then add their votes
+
+    // Save election
+
+    // Delete all candidates
+
+    // Delete election from Blockchain
+
+
   };
 
   // Logout functionality

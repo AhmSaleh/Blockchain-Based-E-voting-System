@@ -7,13 +7,9 @@ const Election = mongoose.model(
   "Election",
   new mongoose.Schema({
     candidateWinner: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: Candidate,
+      type: candidateSchema
     },
     candidateWinnerVotes: Number,
-    startDate: {
-      type: Date,
-    },
     endDate: {
       type: Date,
       default: Date.now(),
@@ -26,6 +22,7 @@ const Election = mongoose.model(
       type: [candidateSchema],
       required: true,
     },
+    name: String
   })
 );
 

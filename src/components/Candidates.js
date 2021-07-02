@@ -12,7 +12,6 @@ import Layout from "./Layout";
 class Candidates extends Component {
   checkIfAuthenticated() {
     const token = localStorage.getItem("token");
-    let decoded;
     if (!token) {
       swal("Error!", "Unauthenticated!", "error");
       window.location.pathname = "/login";
@@ -31,11 +30,6 @@ class Candidates extends Component {
   state = {
     index: -1,
   };
-
-  componentDidMount() {
-    console.log(this.props.token);
-    //alert(this.props.candidates);
-  }
 
   vote = (index, event) => {
     swal({

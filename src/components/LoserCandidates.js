@@ -2,38 +2,7 @@ import React, { Component } from "react";
 
 class LoserCandidates extends Component {
   state = {
-    candidates: [
-      {
-        candidateName: "Trump",
-        votesCount: 35000,
-        img: "https://upload.wikimedia.org/wikipedia/commons/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg",
-      },
-      {
-        candidateName: "Hillary Clinton",
-        votesCount: 13000,
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hillary_Clinton_by_Gage_Skidmore_4_%28cropped%29.jpg/449px-Hillary_Clinton_by_Gage_Skidmore_4_%28cropped%29.jpg",
-      },
-      {
-        candidateName: "Jorgensen Portrait",
-        votesCount: 5800,
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jo_Jorgensen_portrait_3.jpg/220px-Jo_Jorgensen_portrait_3.jpg",
-      },
-      {
-        candidateName: "Trump",
-        votesCount: 35000,
-        img: "https://upload.wikimedia.org/wikipedia/commons/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg",
-      },
-      {
-        candidateName: "Hillary Clinton",
-        votesCount: 13000,
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Hillary_Clinton_by_Gage_Skidmore_4_%28cropped%29.jpg/449px-Hillary_Clinton_by_Gage_Skidmore_4_%28cropped%29.jpg",
-      },
-      {
-        candidateName: "Jorgensen Portrait",
-        votesCount: 5800,
-        img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jo_Jorgensen_portrait_3.jpg/220px-Jo_Jorgensen_portrait_3.jpg",
-      },
-    ],
+    candidates: this.props.candidates
   };
   render() {
     return (
@@ -44,7 +13,7 @@ class LoserCandidates extends Component {
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-3">
               {this.state.candidates.map((candidate) => (
                 <div class="col mb-5">
-                  <div class="card h-100">
+                  <div class="card1 h-100">
                     {/* <!-- Candidate image--> */}
                     <img
                       style={{
