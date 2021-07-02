@@ -1,55 +1,202 @@
 import web3 from "./web3";
 
-const address = "0x383ed8d23f404213103f007f726075d8e95804e9";
+const address = "0xafe94c7f46fb2f68f845f8856924759f691e4959";
 
 const api = [
   {
     constant: false,
     inputs: [
       {
-        name: "candidateName",
-        type: "string",
-      },
+        name: "candidateIndex",
+        type: "uint256"
+      }
     ],
-    name: "addCandidate",
+    name: "vote",
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
   },
   {
     constant: false,
     inputs: [
       {
         name: "index",
-        type: "uint256",
-      },
+        type: "uint256"
+      }
     ],
     name: "removeCandidate",
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "totalVotes",
+    outputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   },
   {
     constant: false,
     inputs: [
       {
-        name: "candidateIndex",
-        type: "uint256",
-      },
+        name: "electionNameArgument",
+        type: "string"
+      }
     ],
-    name: "vote",
+    name: "saveElectionName",
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
-    type: "function",
+    type: "function"
   },
   {
-    inputs: [],
+    constant: true,
+    inputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    name: "candidates",
+    outputs: [
+      {
+        name: "name",
+        type: "string"
+      },
+      {
+        name: "votesCount",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "candidateName",
+        type: "string"
+      }
+    ],
+    name: "addCandidate",
+    outputs: [],
     payable: false,
     stateMutability: "nonpayable",
-    type: "constructor",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "endElection",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "electionName",
+    outputs: [
+      {
+        name: "",
+        type: "string"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "winnerIndex",
+    outputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "",
+        type: "address"
+      }
+    ],
+    name: "voters",
+    outputs: [
+      {
+        name: "voted",
+        type: "bool"
+      },
+      {
+        name: "candidate",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "winningCandidate",
+    outputs: [
+      {
+        name: "winningCandidate_",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "winnerName",
+    outputs: [
+      {
+        name: "winnerName_",
+        type: "string"
+      }
+    ],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "isElectionRunning",
+    outputs: [
+      {
+        name: "",
+        type: "bool"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
   },
   {
     constant: true,
@@ -58,87 +205,19 @@ const api = [
     outputs: [
       {
         name: "",
-        type: "address",
-      },
+        type: "address"
+      }
     ],
     payable: false,
     stateMutability: "view",
-    type: "function",
+    type: "function"
   },
   {
-    constant: true,
-    inputs: [
-      {
-        name: "",
-        type: "uint256",
-      },
-    ],
-    name: "candidates",
-    outputs: [
-      {
-        name: "name",
-        type: "string",
-      },
-      {
-        name: "votesCount",
-        type: "uint256",
-      },
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    constant: true,
-    inputs: [
-      {
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "voters",
-    outputs: [
-      {
-        name: "voted",
-        type: "bool",
-      },
-      {
-        name: "candidate",
-        type: "uint256",
-      },
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    constant: true,
     inputs: [],
-    name: "winnerName",
-    outputs: [
-      {
-        name: "winnerName_",
-        type: "string",
-      },
-    ],
     payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: "winningCandidate",
-    outputs: [
-      {
-        name: "winningCandidate_",
-        type: "uint256",
-      },
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
+    stateMutability: "nonpayable",
+    type: "constructor"
+  }
 ];
 
 export default new web3.eth.Contract(api, address);

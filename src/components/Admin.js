@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import swal from "sweetalert";
 import atob from "atob";
 import Layout from "./Layout";
+import web3 from "../web3";
+import ballot from "../ballot";
+
 
 class Admin extends Component {
   checkIfAuthenticated = () => {
@@ -51,9 +54,23 @@ class Admin extends Component {
 
   /* TODO: This function should end an on-going election 
     by accessing the Blockchain and removing the running election*/
-  endElection = () => {
+  endElection = async () => {
     
+
+    const accounts = await web3.eth.getAccounts();
+
+    // Find the winner in Blockchain
+
+    await ballot.methods.winningCandidate().send({
+      from: accounts[0],
+      gas: 1000000,
+    });
+
     // Retrieve Election Winner from Blockchain, then from DB using their ID/index
+    // Retrive Winner from Blockchain
+
+    const winnerIndex = await ballot.methods.winnerIndex().call();
+    console.log(winnerIndex);
 
     // Retrieve all other candidates from Database where ID/Index != ID/Index of Winner, then add their votes
 
