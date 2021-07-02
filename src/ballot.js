@@ -1,17 +1,26 @@
 import web3 from "./web3";
 
-const address = "0xafe94c7f46fb2f68f845f8856924759f691e4959";
+const address = "0x548ae1a62b8ad4fdfb460f768a1643cbdb912fc4";
 
 const api = [
   {
     constant: false,
     inputs: [
       {
-        name: "candidateIndex",
-        type: "uint256"
+        name: "candidateName",
+        type: "string"
       }
     ],
-    name: "vote",
+    name: "addCandidate",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "endElection",
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
@@ -32,20 +41,6 @@ const api = [
     type: "function"
   },
   {
-    constant: true,
-    inputs: [],
-    name: "totalVotes",
-    outputs: [
-      {
-        name: "",
-        type: "uint256"
-      }
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function"
-  },
-  {
     constant: false,
     inputs: [
       {
@@ -57,6 +52,68 @@ const api = [
     outputs: [],
     payable: false,
     stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "candidateIndex",
+        type: "uint256"
+      }
+    ],
+    name: "vote",
+    outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "winnerName",
+    outputs: [
+      {
+        name: "winnerName_",
+        type: "string"
+      }
+    ],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [],
+    name: "winningCandidate",
+    outputs: [
+      {
+        name: "winningCandidate_",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    inputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "constructor"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "admin",
+    outputs: [
+      {
+        name: "",
+        type: "address"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
     type: "function"
   },
   {
@@ -83,29 +140,6 @@ const api = [
     type: "function"
   },
   {
-    constant: false,
-    inputs: [
-      {
-        name: "candidateName",
-        type: "string"
-      }
-    ],
-    name: "addCandidate",
-    outputs: [],
-    payable: false,
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
-    constant: false,
-    inputs: [],
-    name: "endElection",
-    outputs: [],
-    payable: false,
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
     constant: true,
     inputs: [],
     name: "electionName",
@@ -122,7 +156,21 @@ const api = [
   {
     constant: true,
     inputs: [],
-    name: "winnerIndex",
+    name: "isElectionRunning",
+    outputs: [
+      {
+        name: "",
+        type: "bool"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "totalVotes",
     outputs: [
       {
         name: "",
@@ -157,66 +205,18 @@ const api = [
     type: "function"
   },
   {
-    constant: false,
+    constant: true,
     inputs: [],
-    name: "winningCandidate",
+    name: "winnerIndex",
     outputs: [
       {
-        name: "winningCandidate_",
+        name: "",
         type: "uint256"
       }
     ],
     payable: false,
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
-    constant: false,
-    inputs: [],
-    name: "winnerName",
-    outputs: [
-      {
-        name: "winnerName_",
-        type: "string"
-      }
-    ],
-    payable: false,
-    stateMutability: "nonpayable",
-    type: "function"
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: "isElectionRunning",
-    outputs: [
-      {
-        name: "",
-        type: "bool"
-      }
-    ],
-    payable: false,
     stateMutability: "view",
     type: "function"
-  },
-  {
-    constant: true,
-    inputs: [],
-    name: "admin",
-    outputs: [
-      {
-        name: "",
-        type: "address"
-      }
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function"
-  },
-  {
-    inputs: [],
-    payable: false,
-    stateMutability: "nonpayable",
-    type: "constructor"
   }
 ];
 

@@ -59,16 +59,15 @@ class Admin extends Component {
 
     const accounts = await web3.eth.getAccounts();
 
-    // Find the winner in Blockchain
-
-    await ballot.methods.winningCandidate().send({
+    // End Election in Blockchain
+    await ballot.methods.endElection().send({
       from: accounts[0],
       gas: 1000000,
     });
 
     // Retrieve Election Winner from Blockchain, then from DB using their ID/index
+    
     // Retrive Winner from Blockchain
-
     const winnerIndex = await ballot.methods.winnerIndex().call();
     console.log(winnerIndex);
 
