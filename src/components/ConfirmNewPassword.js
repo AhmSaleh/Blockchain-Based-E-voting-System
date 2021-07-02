@@ -11,9 +11,11 @@ const ConfirmNewPassword = () => {
   const confirm = (event) => {
     event.preventDefault();
 
+    // Getting the new user password
     const newPassword = event.target.newPassword.value;
     const newPasswordConfirmation = event.target.newPasswordConfirmation.value;
 
+    // Checking if the password and its confirmation match
     if(newPassword !== newPasswordConfirmation){
         swal("Error!", "Please make sure you re-enter your password correctly!", "error");
         return;
@@ -28,7 +30,7 @@ const ConfirmNewPassword = () => {
     // Check the confirmation code then change the user's password if the code is correct
     if (event.target.confirmationCode.value === localStorage.getItem("code")) {
       axios
-        .put("http://localhost:5000/api/users", param)
+        .put("http://localhost:5000/api/users/forgotpassword", param)
         .then((res) => {
           if (res.status === 200) {
             swal("Success!", "Password Changed Successfully", "success");
