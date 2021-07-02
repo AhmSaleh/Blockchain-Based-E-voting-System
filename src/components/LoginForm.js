@@ -47,7 +47,6 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Layout>
       <div>
         <head>
           <link
@@ -136,7 +135,6 @@ class LoginForm extends Component {
           </div>
         </body>
       </div>
-      </Layout>
     );
   }
 }

@@ -582,3 +582,8 @@
 {"message":"Connected to the Database successfully!","level":"info"}
 {"message":"Listening on port: 5000","level":"info"}
 {"message":"Connected to the Database successfully!","level":"info"}
+<<<<<<< HEAD
+=======
+{"message":"Listening on port: 5000","level":"info"}
+{"message":"Connected to the Database successfully!","level":"info"}
+>>>>>>> 0fff4e25c6be6dc622f4fce4b5027ab065651774

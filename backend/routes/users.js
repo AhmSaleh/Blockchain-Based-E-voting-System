@@ -62,6 +62,34 @@ router.put("/", async (req, res) => {
   res.header("x-auth-token", token).send(_.pick(user, ["_id"]));
 });
 
+//Allow the user to change their password by looking up their national ID in the Database
+router.put("/forgotpassword", async (req, res) => {
+  //Check if the password meets the requirements
+  const { error } = validatePassword(req.body.password);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  //Check if the user exists in the Database and is already registered
+  let user = await User.findOne({ nationalID: req.body.nationalID }).select({
+    isRegistered: 1,
+    email: 1,
+  });
+  if (!user)
+    return res
+      .status(404)
+      .send("User with the given National ID was not found");
+  else if (!user.isRegistered)
+    return res.status(400).send("User is not registered");
+
+  //Hash the password
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(req.body.password, salt);
+
+  //Save user in the Database and return the authentication token so that the user could use the application
+  await user.save();
+  const token = user.generateAuthToken();
+  res.header("x-auth-token", token).send(_.pick(user, ["_id"]));
+});
+
 router.get("/:id", async (req, res) => {
   const user = await User.findOne({ nationalID: req.params.id });
   res.send(user.email);
