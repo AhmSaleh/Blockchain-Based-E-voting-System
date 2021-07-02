@@ -62,15 +62,15 @@ class LoginForm extends Component {
           <link rel="stylesheet" type="text/css" href="../static/styles.css" />
         </head>
 
-        <body>
-          <div className="container" style={{ margin: "auto", width: "auto" }}>
+        <body >
+          <div className="container" style={{margin: "10% 20%"}}>
             <div className="d-flex justify-content-center h-100">
               <div className="card">
-                <div class="card-header">
+                <div class="card-header" style={{backgroundColor: "#ffc312"}}>
                   <h3>Sign In</h3>
                 </div>
 
-                <div className="card-body">
+                <div className="card-body" style={{backgroundColor: "#333"}}>
                   {/* Login Form */}
                   <form onSubmit={this.login}>
                     {/* National ID Input Group */}
@@ -105,12 +105,6 @@ class LoginForm extends Component {
                       ></input>
                     </div>
 
-                    {/* Remember Me Box */}
-                    <div className="row align-items-center remember">
-                      <input name="rememberMe" type="checkbox"></input>
-                      <label htmlFor="rememberMe">Remember Me?</label>
-                    </div>
-
                     {/* Login Button */}
                     <div className="form-group">
                       <input
@@ -123,13 +117,13 @@ class LoginForm extends Component {
                 </div>
 
                 {/* Card Footer */}
-                <div className="card-footer">
+                <div className="card-footer" style={{backgroundColor: "#ffc312"}}>
                   <div className="d-flex justify-content-center links">
                     Don't have an account?
                     <Link to="/register"> Register now!</Link>
                   </div>
                   <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+                    <Link to="/forgot_password">Forgot your password?</Link>
                   </div>
                 </div>
               </div>

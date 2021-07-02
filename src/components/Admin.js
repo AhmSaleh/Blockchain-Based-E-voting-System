@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
 import atob from "atob";
+import Layout from "./Layout";
 
 class Admin extends Component {
   checkIfAuthenticated = () => {
@@ -56,79 +57,114 @@ class Admin extends Component {
     });
   };
 
+  // Logout functionality
+  logout = () => {
+    swal({
+      title: "Logging Out",
+      text: "Are you sure you want to log out?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willLogout) => {
+      if (willLogout) {
+        // Removing all cached login values
+        localStorage.removeItem("nationalID");
+        localStorage.removeItem("password");
+        localStorage.removeItem("token");
+
+        // Redirecting to login page
+        window.location.pathname = "/login";
+      } else {
+        swal("You did not logout.");
+      }
+    });
+  }
+
   render() {
     return (
-      <div>
-        <head>
-          <link
-            href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-            rel="stylesheet"
-            id="bootstrap-css"
-          />
-          <link
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            rel="stylesheet"
-          />
-          <link
-            href="../static/button_styles.css"
-            rel="stylesheet"
-          />
-        </head>
+      <Layout>
+        <div>
+          <head>
+            <link
+              href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+              rel="stylesheet"
+              id="bootstrap-css"
+            />
+            <link
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              rel="stylesheet"
+            />
+            <link
+              href="../static/button_styles.css"
+              rel="stylesheet"
+            />
+          </head>
 
-        <body>
-          <div className="container" style={{width: "20%", margin: "auto", padding: "50px"}} >
+          <body>
+            <div className="container" style={{width: "20%", margin: "auto", padding: "50px"}} >
+              <div className="col justify-content-center">
+              {/* Adding Candidate Button */}
+              <div className="col-12 col-sm-6 col-lg-1">
+                <button
+                  className="btn btn-primary btn-lg btn3d"
+                  onClick={this.addCandidate}
+                >
+                  Add Candidate
+                </button>
+              </div>
+
+              <br/>
+
+              {/* Removing Candidate Button */}
+              <div className="col-12 col-sm-6 col-lg-1">
+                <button
+                  className="btn btn-danger btn-lg btn3d"
+                  onClick={this.removeCandidate}
+                >
+                  Remove Candidate
+                </button>
+              </div>
+            </div>
+
+            <br />
+
             <div className="col justify-content-center">
-            {/* Adding Candidate Button */}
-            <div className="col-12 col-sm-6 col-lg-1">
-              <button
-                className="btn btn-primary btn-lg btn3d"
-                onClick={this.addCandidate}
-              >
-                Add Candidate
-              </button>
+              {/* Adding User Button */}
+              <div className="col-12 col-sm-6 col-lg-1">
+                <button
+                  className="btn btn-primary btn-lg btn3d"
+                  onClick={this.addUser}
+                >
+                  Add User
+                </button>
+              </div>
+
+              <br/>
+              
+              {/* Ending Election Button */}
+              <div className="col-12 col-sm-6 col-lg-1">
+                <button
+                  className="btn btn-danger btn-lg btn3d"
+                  onClick={this.endElection}
+                >
+                  End Election
+                </button>
+              </div>
+
+              {/* Logout Button */}
+              <div className="col-12 col-sm-6 col-lg-1">
+                <button
+                  className="btn btn-danger btn-lg btn3d"
+                  onClick={this.logout}
+                >
+                  Logout
+                </button>
+              </div>
             </div>
-
-            <br/>
-
-            {/* Removing Candidate Button */}
-            <div className="col-12 col-sm-6 col-lg-1">
-              <button
-                className="btn btn-danger btn-lg btn3d"
-                onClick={this.removeCandidate}
-              >
-                Remove Candidate
-              </button>
             </div>
-          </div>
-
-          <br />
-
-          <div className="col justify-content-center">
-            {/* Adding User Button */}
-            <div className="col-12 col-sm-6 col-lg-1">
-              <button
-                className="btn btn-primary btn-lg btn3d"
-                onClick={this.addUser}
-              >
-                Add User
-              </button>
-            </div>
-
-            <br/>
-            
-            {/* Ending Election Button */}
-            <div className="col-12 col-sm-6 col-lg-1">
-              <button
-                className="btn btn-danger btn-lg btn3d"
-                onClick={this.endElection}
-              >
-                End Election
-              </button>
-            </div>
-          </div>
-          </div>
-        </body>
-      </div>
+          </body>
+        </div>
+      </Layout>
     );
   }
 }

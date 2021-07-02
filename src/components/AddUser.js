@@ -77,17 +77,17 @@ class AddUser extends Component {
         </head>
 
         <body>
-          <div className="container" style={{ margin: "auto", width: "auto" }}>
+          <div className="container" style={{margin: "10% 20%"}}>
             {/* Card Container */}
             <div className="d-flex justify-content-center h-100">
               <div className="card">
                 {/* Card Header */}
-                <div class="card-header">
+                <div class="card-header" style={{backgroundColor: "#ffc312"}}>
                   <h3>Add User</h3>
                 </div>
 
                 {/* Card */}
-                <div className="card-body">
+                <div className="card-body" style={{backgroundColor: "#333"}}>
                   {/* Add User Form */}
                   <form onSubmit={this.addUser}>
                     {/* National ID Input Group */}

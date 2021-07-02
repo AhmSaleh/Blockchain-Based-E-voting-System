@@ -1,25 +1,24 @@
 import Footer from 'rc-footer';
 import 'rc-footer/assets/index.css';
-import { render } from 'react-dom';
 
-export default (props) =>{
+export default () =>{
     return (
-        <div>
-        <Footer
-            className="footer"
-            columns={[
-            {
-              icon: (
-                <img src="https://www.flaticon.com/svg/vstatic/svg/3661/3661733.svg?token=exp=1619391411~hmac=21fcd2d91c800f34ded6dd598fb59a2c" />
-              ),
-              title: 'Blockchain',
-              url: 'https://yuque.com',
-              description: 'AS',
-              openExternal: true,
-            },
-            ]}
-            bottom="Made with ❤️ by KING SALEH"
-        />,
+        <div style={{position: "fixed", bottom: 0, width: "100%"}}>
+          <Footer
+              className="footer"
+              columns={[
+              {
+                icon: (
+                  <img src="https://www.flaticon.com/svg/vstatic/svg/3661/3661733.svg?token=exp=1619391411~hmac=21fcd2d91c800f34ded6dd598fb59a2c" />
+                ),
+                title: 'Blockchain E-Voting System',
+                url: 'https://yuque.com',
+                description: 'AS',
+                openExternal: true,
+              },
+              ]}
+              bottom="© 2020-2021"
+          />
         </div>
       )
 }

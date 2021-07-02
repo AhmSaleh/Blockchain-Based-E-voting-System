@@ -4,12 +4,16 @@ import ballot from "./ballot";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import Candidates from "./components/Candidates";
+import Homepage from "./components/Homepage";
 import Admin from "./components/Admin";
+import TestAdmin from "./components/TestAdmin";
 import NewCandidate from "./components/NewCandidate";
 import RemoveCandidate from "./components/RemoveCandidate";
 import AddUser from "./components/AddUser";
 import ConfirmEmail from "./components/ConfirmEmail";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import ForgotPassword from "./components/ForgotPassword";
+import ConfirmNewPassword from "./components/ConfirmNewPassword";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 const axios = require("axios");
 
 class App extends Component {
@@ -52,6 +56,17 @@ class App extends Component {
     return (
       <Router>
         <div>
+          {/* Home Route*/}
+          <Route
+            exact path="/"
+            render={() => (
+              <>
+                <Redirect to="/login"/>
+              </>
+            )}
+          />
+
+          {/* Login Route*/}
           <Route
             path="/login"
             render={() => (
@@ -63,6 +78,8 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Register Route*/}
           <Route
             path="/register"
             render={() => (
@@ -71,14 +88,28 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Elections Homepage Route*/}
+          <Route
+            path="/elections"
+            render={() => (
+              <>
+                <Homepage token={this.state.token} />
+              </>
+            )}
+          />
+
+          {/* Admin Route*/}
           <Route
             path="/admin"
             render={() => (
               <>
-                <Admin token={this.state.token} />
+                <TestAdmin token={this.state.token} />
               </>
             )}
           />
+          
+          {/* New Candidate Route*/}
           <Route
             path="/new_candidate"
             render={() => (
@@ -87,6 +118,8 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Remove Candidate Route*/}
           <Route
             path="/remove_candidate"
             render={() => (
@@ -98,6 +131,8 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Add User Route*/}
           <Route
             path="/add_user"
             render={() => (
@@ -106,6 +141,8 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Candidates Route*/}
           <Route
             path="/candidates"
             render={() => (
@@ -118,6 +155,14 @@ class App extends Component {
               </>
             )}
           />
+
+          {/* Forgot Password Route*/}
+          <Route path="/forgot_password" component={ForgotPassword} />
+
+          {/* Confirm New Password Code Route*/}
+          <Route path="/confirm_new_password" component={ConfirmNewPassword} />
+
+          {/* Confirm Email Code Route*/}
           <Route path="/confirm" component={ConfirmEmail} />
         </div>
       </Router>

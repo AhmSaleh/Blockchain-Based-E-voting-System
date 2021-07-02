@@ -68,17 +68,17 @@ const RegisterForm = () => {
       </head>
 
       <body>
-        <div className="container" style={{ margin: "auto", width: "auto" }}>
+        <div className="container" style={{margin: "10% 20%"}}>
           {/* Card Container */}
-          <div className="d-flex justify-content-center h-100">
+          <div className="d-flex justify-content-center h-100" >
             <div className="card">
               {/* Card Header */}
-              <div class="card-header">
+              <div class="card-header" style={{backgroundColor: "#ffc312"}}>
                 <h3>Sign Up</h3>
               </div>
 
               {/* Card */}
-              <div className="card-body">
+              <div className="card-body" style={{backgroundColor: "#333"}}>
                 {/* Registration Form */}
                 <form onSubmit={register}>
                   {/* National ID Input Group */}
@@ -114,7 +114,7 @@ const RegisterForm = () => {
                   </div>
 
                   {/* Register Button */}
-                  <div className="form-group">
+                  <div className="form-group" >
                     <input
                       type="submit"
                       value="Register"
@@ -125,7 +125,7 @@ const RegisterForm = () => {
               </div>
 
               {/* Card Footer */}
-              <div className="card-footer">
+              <div className="card-footer" style={{backgroundColor: "#ffc312"}}>
                 <div className="d-flex justify-content-center links">
                   Already have an account?<Link to="/login"> Login</Link>
                 </div>
