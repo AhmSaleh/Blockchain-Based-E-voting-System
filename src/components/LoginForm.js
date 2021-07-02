@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import swal from "sweetalert";
 import "../static/styles.css";
+import Layout from "./Layout";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+
 const atob = require("atob");
 
 const axios = require("axios");
@@ -43,6 +47,7 @@ class LoginForm extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <head>
           <link
@@ -131,6 +136,7 @@ class LoginForm extends Component {
           </div>
         </body>
       </div>
+      </Layout>
     );
   }
 }

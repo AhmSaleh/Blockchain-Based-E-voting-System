@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+import Layout from "./Layout";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+
 
 const axios = require("axios");
 
@@ -48,6 +54,7 @@ const RegisterForm = () => {
   };
 
   return (
+    <Layout>
     <div>
       <head>
         <link
@@ -135,6 +142,7 @@ const RegisterForm = () => {
         </div>
       </body>
     </div>
+    </Layout>
   );
 };
 

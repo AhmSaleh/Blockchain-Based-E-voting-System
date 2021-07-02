@@ -3,6 +3,10 @@ import swal from "sweetalert";
 import web3 from "../web3";
 import ballot from "../ballot";
 import atob from "atob";
+import Layout from "./Layout";
+import "../static/styles.css";
+import "semantic-ui-css/semantic.min.css";
+
 
 const axios = require("axios");
 
@@ -79,6 +83,7 @@ class RemoveCandidate extends Component {
 
   render() {
     return (
+      <Layout>
       <div>
         <head>
           <link
@@ -152,6 +157,7 @@ class RemoveCandidate extends Component {
           </div>
         </body>
       </div>
+      </Layout>
     );
   }
 }
