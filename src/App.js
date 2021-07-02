@@ -13,7 +13,10 @@ import AddUser from "./components/AddUser";
 import ConfirmEmail from "./components/ConfirmEmail";
 import ForgotPassword from "./components/ForgotPassword";
 import ConfirmNewPassword from "./components/ConfirmNewPassword";
+import Signin from "./components/Signin"; 
+import Election from "./components/Election";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+
 const axios = require("axios");
 
 class App extends Component {
@@ -56,6 +59,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          
           {/* Home Route*/}
           <Route
             exact path="/"
@@ -164,6 +168,28 @@ class App extends Component {
 
           {/* Confirm Email Code Route*/}
           <Route path="/confirm" component={ConfirmEmail} />
+
+          {/* Sigin 2.0 Route*/}
+            <Route
+            path="/signin"
+            render={() => (
+              <>
+                <Signin/>
+              </>
+            )}
+            />
+
+
+          {/* Election Route*/}
+          <Route
+            path="/election"
+            render={() => (
+              <>
+                <Election/>
+              </>
+            )}
+            />
+            
         </div>
       </Router>
     );
