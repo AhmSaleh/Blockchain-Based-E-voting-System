@@ -4,6 +4,7 @@ import ballot from "../ballot";
 import swal from "sweetalert";
 import "../static/candidate_styles.css";
 import axios from "axios";
+import atob from "atob";
 import jwt from "jsonwebtoken";
 import "../static/styles.css";
 import "semantic-ui-css/semantic.min.css";
@@ -11,20 +12,27 @@ import Layout from "./Layout";
 import LoadingOverlay from 'react-loading-overlay';
 
 class Candidates extends Component {
-  checkIfAuthenticated() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      swal("Error!", "Unauthenticated! No token!", "error");
-      //window.location.pathname = "/login";
-    }
-    try {
-      jwt.verify(token);
-    } catch (err) {
-      swal("Error!", "Unauthenticated! Invalid token!", "error");
-      console.log(err.message);
-      //window.location.pathname = "/login";
-    }
-  }
+
+  checkIfAuthenticated = () => {
+        const token = localStorage.getItem("token");
+        let decoded;
+        if (!token) {
+            swal("Error!", "Unauthenticated!", "error");
+            window.location.pathname = "/login";
+        }
+        try {
+            decoded = JSON.parse(atob(token.split(".")[1]));
+        } catch (err) {
+            console.log(err.message);
+            swal("Error!", "An error has occured!", "error");
+            window.location.pathname = "/login";
+        }
+        if (decoded.isAdmin) {
+            swal("Error!", "Unauthorized!", "error");
+            window.location.pathname = "/admin";
+        }
+  };
+  
   componentDidMount() {
     this.checkIfAuthenticated();
   }
@@ -57,27 +65,25 @@ class Candidates extends Component {
 
     const accounts = await web3.eth.getAccounts();
 
-    await ballot.methods
-      .vote(index)
-      .send({
-        from: accounts[0],
-        gas: "100000",
-      })
-      .then((hasVoted) => {
-        if (hasVoted) {
-          swal("Your vote was successfully cast!", {
-            icon: "success",
-          });
-        } else {
-          swal("Error", "There was an error when casting your vote!", {
-            icon: "error",
-          });
-          this.setState({isLoadingOverlayActive: false});
-          return;
-        }
-      });
+    await ballot.methods.vote(0).send({
+      from: accounts[0],
+      gas: 1000000,
+    })
+    .then((hasVoted) => {
+      if (hasVoted) {
+        swal("Your vote was successfully cast!", {
+          icon: "success",
+        });
+      } else {
+        swal("Error", "There was an error when casting your vote!", {
+          icon: "error",
+        });
+        this.setState({isLoadingOverlayActive: false});
+        return;
+      }
+    });
 
-    axios
+    await axios
       .put("http://localhost:5000/api/users/voted", "", {
         headers: {
           "x-auth-token": localStorage.getItem("token"),

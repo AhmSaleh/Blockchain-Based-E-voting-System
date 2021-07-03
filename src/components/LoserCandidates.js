@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class LoserCandidates extends Component {
-  state = {
-    candidates: this.props.candidates
-  };
   render() {
     return (
       <React.Fragment>
@@ -11,7 +8,7 @@ class LoserCandidates extends Component {
           <div class="container px-4 px-lg-5 mt-5">
             <h2 class="fw-bolder mb-4 mb-4">Other candidates</h2>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-3">
-              {this.state.candidates.map((candidate) => (
+              {this.props.candidates.map((candidate) => (
                 <div class="col mb-5">
                   <div class="card1 h-100">
                     {/* <!-- Candidate image--> */}
@@ -22,15 +19,15 @@ class LoserCandidates extends Component {
                         height: "369px",
                       }}
                       class="card-img-top"
-                      src={candidate.img}
+                      src={candidate.photo}
                       alt="..."
                     />
                     <div class="card-body p-4">
                       <div class="text-center">
                         {/* <!-- Candidate name--> */}
-                        <h5 class="fw-bolder">{candidate.candidateName}</h5>
+                        <h5 class="fw-bolder">{candidate.name}</h5>
                         {/* <!-- Votes count--> */}
-                        <span  class="text-muted">{candidate.votesCount}</span>
+                        <span  class="text-muted">{candidate.description}</span>
                       </div>
                     </div>
                   </div>

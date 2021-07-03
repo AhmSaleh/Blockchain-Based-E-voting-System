@@ -23,7 +23,7 @@ export default class MenuExampleInvertedSegment extends React.Component {
     }
 
     // Logout functionality
-    logout = () => {
+    logout = async () => {
         swal({
         title: "Logging Out",
         text: "Are you sure you want to log out?",

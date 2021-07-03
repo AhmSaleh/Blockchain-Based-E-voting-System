@@ -59,6 +59,7 @@ class Election extends Component {
     }
 
     getElectionDetails = () => {
+        console.log(this.state.id);
         axios
         .get(`http://localhost:5000/api/elections/${this.state.id}`, {
         headers: {
@@ -67,21 +68,19 @@ class Election extends Component {
       })
         .then((res) => {
             const election = res.data;
-            //this.setState({ election });
+            this.setState({ election });
         })
         .catch((err) => alert(err.message));
-    }
-
-    // TODO: GET the election winner from the DB using their ID from the state.election object
-    getElectionWinner = () => {
-
     }
 
     render() { 
         return (
             <React.Fragment>
                 <Navbar/>
-                <WinnerCandidate winner={this.state.election.candidateWinner}/>
+                <WinnerCandidate winner={this.state.election.candidateWinner}
+                                totalVotes={this.state.election.totalVotes}
+                                winnerVotes={this.state.election.candidateWinnerVotes}/>
+                                
                 <LoserCandidates candidates={this.state.election.candidates} />
                 <Footer/>
             </React.Fragment>

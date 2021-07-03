@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = "0x0260fb2f22aea4bc454ab06455b85fb499fe9830";
+const address = "0xbce0a1158609e1f8b73435443230dd158d39296e";
 
 const api = [
   {
@@ -22,6 +22,25 @@ const api = [
     inputs: [],
     name: "endElection",
     outputs: [],
+    payable: false,
+    stateMutability: "nonpayable",
+    type: "function"
+  },
+  {
+    constant: false,
+    inputs: [
+      {
+        name: "voter",
+        type: "address"
+      }
+    ],
+    name: "isVoted",
+    outputs: [
+      {
+        name: "voted",
+        type: "bool"
+      }
+    ],
     payable: false,
     stateMutability: "nonpayable",
     type: "function"
@@ -198,6 +217,25 @@ const api = [
       {
         name: "candidate",
         type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    name: "votersAddresses",
+    outputs: [
+      {
+        name: "",
+        type: "address"
       }
     ],
     payable: false,

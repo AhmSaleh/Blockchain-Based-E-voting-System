@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import swal from "sweetalert";
 import atob from "atob";
 import Layout from "./Layout";
@@ -69,9 +69,12 @@ const TestAdmin = () => {
 
   const endElectionYesCallback = async () => {
     
-    let candidates = [];
+    var candidates = [];
+    var candidateWinner = {};
 
     const accounts = await web3.eth.getAccounts();
+
+    const totalVotes = await ballot.methods.totalVotes().call();
 
     // End Election in Blockchain
     await ballot.methods.endElection().send({
@@ -81,22 +84,33 @@ const TestAdmin = () => {
 
     // Retrive Winner, total votes, and winner votes from Blockchain
     const winnerIndex = await ballot.methods.winnerIndex().call();
-    const totalVotes = await ballot.methods.totalVotes().call();
     const winnerVotes = await ballot.methods.winnerVotes().call();
 
     // Retrieve all other candidates from Database where ID/Index != ID/Index of Winner, then add their votes
-    axios
-      .get("http://localhost:5000/api/candidates")
-      .then((res) => {
-          candidates = res.data;
-      })
-      .catch((err) => {
-          alert("GETTING CANDIDATES " + err.message);
-          return;
-        });
+    candidates = await axios
+                        .get(`http://localhost:5000/api/candidates/getall/${winnerIndex}`)
+                        .then((res) => {
+                            return res.data;
+                        })
+                        .catch((err) => {
+                            alert("GETTING CANDIDATES " + err.message);
+                            return [-1];
+                        });
 
-    const candidateWinner = candidates.find(c => c.index === winnerIndex);
-    candidates = candidates.filter(c => c.index !== winnerIndex);
+    if(candidates[0] === -1) return;
+
+    // Retrieve the winner candidate
+    candidateWinner = await axios
+                            .get(`http://localhost:5000/api/candidates/${winnerIndex}`)
+                            .then((res) => {
+                                return res.data;          
+                            })
+                            .catch((err) => {
+                                alert("GETTING WINNER CANDIDATE " + err.message);
+                                return [-1];
+                            });
+    
+    if(candidateWinner[0] === -1) return;
 
     // Save election
     const param = {

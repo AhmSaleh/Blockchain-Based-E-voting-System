@@ -144,7 +144,7 @@ class Homepage extends Component {
                                             >
                                                 Winner: {election.candidateWinner.name} <br/>
                                             </Typography>
-                                            {"Number of votes for winner: " + election.winnerVotes} <br/>
+                                            {"Number of votes for winner: " + election.candidateWinnerVotes} <br/>
                                             {"Total number of votes: " + election.totalVotes} 
                                             </React.Fragment>
                                         }

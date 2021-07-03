@@ -185,7 +185,7 @@ class App extends Component {
             path="/election/:id"
             render={(routerProps) => (
               <>
-                <Election index={routerProps.match.params.id}/>
+                <Election id={routerProps.match.params.id}/>
               </>
             )}
             />

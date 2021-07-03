@@ -42,7 +42,22 @@ router.delete("/", [auth, admin], async (req, res) => {
 router.get("/", async (req, res) => {
   const candidates = await Candidate.find();
   if (!candidates) return res.status(404).send("No candidates exist");
-  //console.log(candidates);
+  //console.log("Candidates at endpoint: " + candidates);
   res.send(candidates);
 });
+
+//Get a certain candidates from the Database
+router.get("/:index", async (req, res) => {
+  const candidate = await Candidate.findOne({index: req.params.index});
+  if (!candidate) return res.status(404).send("Candidate not found");
+  res.send(candidate);
+});
+
+//Get all candidates except one from the Database
+router.get("/getall/:index", async (req, res) => {
+  const candidates = await Candidate.find({index: {$ne: req.params.index}});
+  if (!candidates) return res.status(404).send("No candidates exist");
+  res.send(candidates);
+});
+
 module.exports = router;
