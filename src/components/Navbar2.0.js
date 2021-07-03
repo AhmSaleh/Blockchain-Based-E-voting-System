@@ -1,12 +1,38 @@
 import React, { Component } from "react";
 import logo from "../imgs/logo.png"
 import logoutIcon from '../imgs/logout.png'
+import swal from "sweetalert";
 
 class Navbar extends Component {
   state = {};
-  render() {
+    // Logout functionality
+    logout = async () => {
+      swal({
+      title: "Logging Out",
+      text: "Are you sure you want to log out?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+      }).then((willLogout) => {
+      if (willLogout) {
+          // Removing all cached login values
+          localStorage.removeItem("nationalID");
+          localStorage.removeItem("password");
+          localStorage.removeItem("token");
 
-    
+          // Redirecting to login page
+          window.location.pathname = "/login";
+      } else {
+          swal("You did not logout.");
+      }
+      });
+  }
+
+  goToElections = () => {
+    window.location.pathname = "/elections";
+  }
+
+  render() {
     return (
       <React.Fragment>
         <nav
@@ -32,23 +58,23 @@ class Navbar extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                  <a class="nav-link active ml-5" aria-current="page" href="#!">
+                  <a class="nav-link active ml-5" aria-current="page" style={{cursor: "pointer"}} onClick={this.goToElections}>
                     Home
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active ml-2" aria-current="page" href="#!">
+                  <a class="nav-link active ml-2" aria-current="page" style={{cursor: "pointer"}} onClick={this.goToElections}>
                     Elections
                   </a>
                 </li>
               </ul>
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                  <a href="#" class="nav-link ">
-                  <img src={logoutIcon} height="25px" width="25px"/>                  </a>
+                  <label href="#" class="nav-link ">
+                  <img src={logoutIcon} height="25px" width="25px" onClick={this.logout}/></label>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#!">
+                  <a class="nav-link active mt-1" aria-current="page" style={{cursor: "pointer"}} onClick={this.logout}>
                     Logout
                   </a>
                 </li>

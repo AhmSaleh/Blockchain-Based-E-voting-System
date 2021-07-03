@@ -4,9 +4,9 @@ class Footer extends Component {
   state = {};
   render() {
     return (
-      <React.Fragment>
-        <footer style = {{backgroundColor: "#e4e4e4"}} className="py-5">
-            <div style = {{color: "rgb(104, 104, 104)"}} class="container"><p class="m-0 text-center"> &copy; 2020-2021</p></div>
+      <React.Fragment >
+        <footer style = {{backgroundColor: "#f7f7f7", position: "absolute", bottom: 0, width:"100%"}} className="py-5">
+            <div style = {{color: "rgb(104, 104, 104)", height: "calc(100% - 60px)"}} class="container"><p class="m-0 text-center"> &copy; 2020-2021</p></div>
         </footer>
       </React.Fragment>
     );
