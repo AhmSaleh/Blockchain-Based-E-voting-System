@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = "0x548ae1a62b8ad4fdfb460f768a1643cbdb912fc4";
+const address = "0x0260fb2f22aea4bc454ab06455b85fb499fe9830";
 
 const api = [
   {
@@ -208,6 +208,20 @@ const api = [
     constant: true,
     inputs: [],
     name: "winnerIndex",
+    outputs: [
+      {
+        name: "",
+        type: "uint256"
+      }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
+    constant: true,
+    inputs: [],
+    name: "winnerVotes",
     outputs: [
       {
         name: "",

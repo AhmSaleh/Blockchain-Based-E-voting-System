@@ -11,7 +11,6 @@ router.post("/", [auth, admin], async (req, res) => {
     candidateWinner: req.body.candidateWinner,
     candidateWinnerVotes: req.body.candidateWinnerVotes,
     totalVotes: req.body.totalVotes,
-    name: req.body.name,
     candidates: req.body.candidates,
   });
 

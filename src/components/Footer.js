@@ -3,7 +3,7 @@ import 'rc-footer/assets/index.css';
 
 export default () =>{
     return (
-        <div style={{position: "fixed", bottom: 0, width: "100%"}}>
+        <div style={{position: "fixed", bottom: 0, width: "0%"}}>
           <Footer
               className="footer"
               columns={[

@@ -35,6 +35,7 @@ class NewCandidate extends React.Component {
   state = {
     candidateName: "",
     candidateSymbol: "",
+    candidateDescription: "",
     candidatePhoto: "",
     errorMessage: "",
     loading: false,
@@ -69,6 +70,7 @@ class NewCandidate extends React.Component {
       name: this.state.candidateName,
       symbol: this.state.candidateSymbol,
       photo: this.state.candidatePhoto,
+      description: this.state.candidateDescription
     };
 
     axios
@@ -127,6 +129,22 @@ class NewCandidate extends React.Component {
                 }
               />
             </Form.Field>
+
+            {/*Candidate Desc*/}
+            <Form.Field>
+              <label>Description</label>
+              <input
+                type="textarea"
+                placeholder="Candidate Description"
+                value={this.state.candidateDescription}
+                onChange={(event) =>
+                  this.setState({ candidateDescription: event.target.value })
+                }
+              />
+            </Form.Field>
+
+
+            {/*Candidate Photo*/}
             <Form.Field>
               <label>Photo</label>
               <input

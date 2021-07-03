@@ -12,6 +12,12 @@ const candidateSchema = new mongoose.Schema({
   photo: String,
   votesInLatestElection: Number,
   index: Number,
+  description: {
+    type: String,
+    minlength: 5,
+    maxlength: 400,
+    required: true,
+  },
 });
 
 const Candidate = mongoose.model("Candidate", candidateSchema);

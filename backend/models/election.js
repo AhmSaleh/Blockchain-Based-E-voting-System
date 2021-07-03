@@ -21,8 +21,7 @@ const Election = mongoose.model(
     candidates: {
       type: [candidateSchema],
       required: true,
-    },
-    name: String
+    }
   })
 );
 

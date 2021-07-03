@@ -16,6 +16,7 @@ router.post("/", [auth, admin], async (req, res) => {
     symbol: req.body.symbol,
     photo: req.body.photo,
     index: index,
+    description: req.body.description
   });
   await user.save();
   res.send(user);
@@ -29,6 +30,12 @@ router.delete("/:id", [auth, admin], async (req, res) => {
       .status(404)
       .send("User with the given National ID was not found");
   res.send(user);
+});
+
+//Remove all Candidates from the election
+router.delete("/", [auth, admin], async (req, res) => {
+  await Candidate.deleteMany({ index: { $gte: 0 } });
+  res.send("Success!");
 });
 
 //Get all candidates from the Database

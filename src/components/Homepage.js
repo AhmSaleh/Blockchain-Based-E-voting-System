@@ -96,7 +96,7 @@ class Homepage extends Component {
 
                                     {/* Election details */}
                                     <ListItemText
-                                    primary="US Presidential Election 2024"
+                                    primary={"Election " + this.state.elections.length + 1}
                                     secondary={
                                         <React.Fragment>
                                         <Typography
@@ -139,7 +139,7 @@ class Homepage extends Component {
 
                                         {/* Election details */}
                                         <ListItemText
-                                        primary={"Election " + index}
+                                        primary={"Election " + index+1}
                                         secondary={
                                             <React.Fragment>
                                             <Typography

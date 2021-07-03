@@ -8,6 +8,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import web3 from "../web3";
+import ballot from "../ballot";
+import axios from "axios";
 
 const TestAdmin = () => {
     const checkIfAuthenticated = () => {
@@ -48,21 +51,90 @@ const TestAdmin = () => {
         window.location.pathname = "/add_user";
     };
 
-    /* TODO: This function should start a new election 
-    by accessing the Blockchain and adding a new election to it*/
-    const startElection = () => {
-        swal("Not implemented yet!!! xD", {
-            icon: "error",
+    const endElection = () => {
+        swal({
+            title: "Are you sure?",
+            text: "Once you end the election, your action cannot undone!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willEnd) => {
+        if (willEnd) {
+            endElectionYesCallback();
+        } else {
+            swal("You did not end the election.");
+        }
         });
+    }
+
+  const endElectionYesCallback = async () => {
+    
+    let candidates = [];
+
+    const accounts = await web3.eth.getAccounts();
+
+    // End Election in Blockchain
+    await ballot.methods.endElection().send({
+      from: accounts[0],
+      gas: 1000000,
+    });
+
+    // Retrive Winner, total votes, and winner votes from Blockchain
+    const winnerIndex = await ballot.methods.winnerIndex().call();
+    const totalVotes = await ballot.methods.totalVotes().call();
+    const winnerVotes = await ballot.methods.winnerVotes().call();
+
+    // Retrieve all other candidates from Database where ID/Index != ID/Index of Winner, then add their votes
+    axios
+      .get("http://localhost:5000/api/candidates")
+      .then((res) => {
+          candidates = res.data;
+      })
+      .catch((err) => {
+          alert("GETTING CANDIDATES " + err.message);
+          return;
+        });
+
+    const candidateWinner = candidates.find(c => c.index === winnerIndex);
+    candidates = candidates.filter(c => c.index !== winnerIndex);
+
+    // Save election
+    const param = {
+      candidateWinner: candidateWinner,
+      candidateWinnerVotes: winnerVotes,
+      totalVotes: totalVotes,
+      candidates: candidates,
     };
 
-    /* TODO: This function should end an on-going election 
-    by accessing the Blockchain and removing the running election*/
-    const endElection = () => {
-        swal("Not implemented yet!!! xD", {
-            icon: "error",
+    axios.post("http://localhost:5000/api/elections", param, {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+            if(res.status === 200){
+              swal("Success!", "Election ended successfully!", "success");
+            }
+        })
+        .catch((err) => {
+            swal("Error! SAVING ELECTION", err.message, "error");
+            return;
         });
-    };
+
+    // Delete all candidates
+    axios.delete("http://localhost:5000/api/candidates", {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+            if(res.status === 200){
+              console.log("Candidates deleted successfully");
+            }
+        })
+        .catch((err) => swal("Error! DELETING CANDIDATES", err.message, "error"));
+
+  };
 
     const useStyles = makeStyles(() => ({
             root: {

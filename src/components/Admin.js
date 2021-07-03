@@ -4,6 +4,7 @@ import atob from "atob";
 import Layout from "./Layout";
 import web3 from "../web3";
 import ballot from "../ballot";
+import axios from "axios";
 
 
 class Admin extends Component {
@@ -54,8 +55,26 @@ class Admin extends Component {
 
   /* TODO: This function should end an on-going election 
     by accessing the Blockchain and removing the running election*/
-  endElection = async () => {
+
+  endElection = () => {
+    swal({
+      title: "Are you sure?",
+      text: "Once you end the election, your action cannot undone!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willEnd) => {
+      if (willEnd) {
+        this.endElectionYesCallback();
+      } else {
+        swal("You did not end the election.");
+      }
+    });
+  }
+
+  endElectionYesCallback = async () => {
     
+    const candidates = [];
 
     const accounts = await web3.eth.getAccounts();
 
@@ -65,20 +84,54 @@ class Admin extends Component {
       gas: 1000000,
     });
 
-    // Retrieve Election Winner from Blockchain, then from DB using their ID/index
-    
-    // Retrive Winner from Blockchain
+    // Retrive Winner, total votes, and winner votes from Blockchain
     const winnerIndex = await ballot.methods.winnerIndex().call();
-    console.log(winnerIndex);
+    const totalVotes = await ballot.methods.totalVotes().call();
+    const winnerVotes = await ballot.methods.winnerVotes().call();
 
     // Retrieve all other candidates from Database where ID/Index != ID/Index of Winner, then add their votes
+    axios
+      .get("http://localhost:5000/api/candidates")
+      .then((res) => {
+          candidates = res.data;
+      })
+      .catch((err) => alert(err.message));
+
+    const candidateWinner = candidates.find(c => c.index === winnerIndex);
+    candidates = candidates.filter(c => c.index !== winnerIndex);
 
     // Save election
+    const param = {
+      candidateWinner: candidateWinner,
+      candidateWinnerVotes: winnerVotes,
+      totalVotes: totalVotes,
+      candidates: candidates,
+    };
+
+    axios.post("http://localhost:5000/api/elections", param, {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+            if(res.status === 200){
+              swal("Success!", "Election ended successfully!", "success");
+            }
+        })
+        .catch((err) => swal("Error!", err.message, "error"));
 
     // Delete all candidates
-
-    // Delete election from Blockchain
-
+    axios.delete("http://localhost:5000/api/candidates", {
+        headers: {
+          "x-auth-token": localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+            if(res.status === 200){
+              console.log("Candidates deleted successfully");
+            }
+        })
+        .catch((err) => swal("Error!", err.message, "error"));
 
   };
 
