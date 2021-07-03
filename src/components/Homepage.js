@@ -14,18 +14,12 @@ import axios from "axios";
 class Homepage extends Component {
     state = {
         ongoingElection: {},
-        elections: [
-            {
-                candidateWinner: "Donald Trump",
-                winnerVotes: 5000,
-                totalVotes: 40000,
-            }
-        ]
+        elections: []
     }
     
     componentDidMount() {
-    //this.getElections();
-  }
+        this.getElections();
+    }
 
     getElections = async () => {
         axios
@@ -96,7 +90,7 @@ class Homepage extends Component {
 
                                     {/* Election details */}
                                     <ListItemText
-                                    primary={"Election " + this.state.elections.length + 1}
+                                    primary={"Election " + (this.state.elections.length + 1)}
                                     secondary={
                                         <React.Fragment>
                                         <Typography
@@ -139,7 +133,7 @@ class Homepage extends Component {
 
                                         {/* Election details */}
                                         <ListItemText
-                                        primary={"Election " + index+1}
+                                        primary={"Election " + (index+1)}
                                         secondary={
                                             <React.Fragment>
                                             <Typography
