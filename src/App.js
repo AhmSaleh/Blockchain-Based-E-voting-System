@@ -74,7 +74,7 @@ class App extends Component {
           />
 
           {/* Login Route*/}
-          <Route
+          {/* <Route
             path="/login"
             render={() => (
               <>
@@ -84,21 +84,33 @@ class App extends Component {
                 />
               </>
             )}
-          />
+          /> */}
+
+          {/* Sigin 2.0 Route*/}
+            <Route
+            path="/login"
+            render={() => (
+              <>
+                <Signin 
+                  tokenHandler={this.handleTokenChange}
+                  token={this.state.token}/>
+              </>
+            )}
+            />
 
           {/* Register Route*/}
-          <Route
+          {/* <Route
             path="/register"
             render={() => (
               <>
                 <RegisterForm token={this.state.token} />
               </>
             )}
-          />
+          /> */}
 
           {/* Register Route 2*/}
           <Route
-            path="/register2"
+            path="/register"
             render={() => (
               <>
                 <RegisterForm2 token={this.state.token} />
@@ -111,7 +123,7 @@ class App extends Component {
             path="/elections"
             render={() => (
               <>
-                <Homepage token={this.state.token} />
+                <Homepage token={this.state.token} candidates={this.state.candidates}/>
               </>
             )}
           />
@@ -174,29 +186,21 @@ class App extends Component {
           />
 
           {/* Forgot Password Route*/}
-          <Route path="/forgot_password" component={ForgotPassword} />
+          {/* <Route path="/forgot_password" component={ForgotPassword} /> */}
 
           {/* Forgot Password 2 Route*/}
-          <Route path="/forgot_password2" component={ForgotPassword2} />
+          <Route path="/forgot_password" component={ForgotPassword2} />
 
           {/* Confirm New Password Code Route*/}
-          <Route path="/confirm_new_password" component={ConfirmNewPassword} />
+          {/* <Route path="/confirm_new_password" component={ConfirmNewPassword} /> */}
 
           {/* Confirm New Password Code Route*/}
-          <Route path="/confirm_new_password2" component={ConfirmNewPassword2} />
+          <Route path="/confirm_new_password" component={ConfirmNewPassword2} />
 
           {/* Confirm Email Code Route*/}
           <Route path="/confirm" component={ConfirmEmail} />
 
-          {/* Sigin 2.0 Route*/}
-            <Route
-            path="/login2"
-            render={() => (
-              <>
-                <Signin/>
-              </>
-            )}
-            />
+          
 
 
           {/* Election Route*/}

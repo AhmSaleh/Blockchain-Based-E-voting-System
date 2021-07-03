@@ -90,9 +90,16 @@ router.put("/forgotpassword", async (req, res) => {
   res.header("x-auth-token", token).send(_.pick(user, ["_id"]));
 });
 
+// Get the user's email
 router.get("/:id", async (req, res) => {
   const user = await User.findOne({ nationalID: req.params.id });
   res.send(user.email);
+});
+
+// Get the user as a whole
+router.get("/user/:id", async (req, res) => {
+  const user = await User.findOne({ nationalID: req.params.id });
+  res.send(user);
 });
 
 //Change the hasVoted value to true when the user votes in the latest election

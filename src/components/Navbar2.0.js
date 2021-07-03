@@ -4,7 +4,29 @@ import logoutIcon from '../imgs/logout.png'
 import swal from "sweetalert";
 
 class Navbar extends Component {
-  state = {};
+    state = {
+      isAdmin: false
+    };
+
+    componentDidMount = () => {
+      this.checkIfAdmin();
+    }
+
+    checkIfAdmin = () => {
+        const token = localStorage.getItem("token");
+        let decoded;
+        if (!token)
+          return;
+        try {
+            decoded = JSON.parse(atob(token.split(".")[1]));
+        } catch (err) {
+            console.log(err.message);
+        }
+        if (decoded.isAdmin) {
+            this.setState({isAdmin: true});
+        }
+    };
+
     // Logout functionality
     logout = async () => {
       swal({
@@ -30,6 +52,10 @@ class Navbar extends Component {
 
   goToElections = () => {
     window.location.pathname = "/elections";
+  }
+
+  goToAdminPanel = () => {
+    window.location.pathname = "/admin";
   }
 
   render() {
@@ -62,11 +88,16 @@ class Navbar extends Component {
                     Home
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active ml-2" aria-current="page" style={{cursor: "pointer"}} onClick={this.goToElections}>
-                    Elections
-                  </a>
-                </li>
+
+                {this.state.isAdmin ? (
+                  <li class="nav-item">
+                    <a class="nav-link active ml-2" aria-current="page" style={{cursor: "pointer"}} onClick={this.goToAdminPanel}>
+                      Control Panel
+                    </a>
+                  </li>
+                ) : ""}
+                
+
               </ul>
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

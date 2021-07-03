@@ -9,16 +9,37 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Layout from './Layout';
 import axios from "axios";
+import ballot from "../ballot";
 
 
 class Homepage extends Component {
     state = {
-        ongoingElection: {},
+        ongoingElection: {
+            userHasVoted: false,
+            totalVotes: 0,
+        },
         elections: []
     }
     
-    componentDidMount() {
-        this.getElections();
+    componentDidMount = async () => {
+        await this.getElections();
+        await this.getOngoingElection();
+    }
+
+    getOngoingElection = async () => {
+        const totalVotes = await ballot.methods.totalVotes().call();
+        const nationalID = localStorage.getItem("nationalID");
+
+        const user = await axios
+                            .get(`http://localhost:5000/api/users/user/${nationalID}`)
+                            .then((res) => {return res.data});
+
+        const ongoingElectionInfo = {
+            userHasVoted: user.hasVoted,
+            totalVotes: totalVotes,
+        }
+
+        this.setState({ongoingElection: ongoingElectionInfo});
     }
 
     getElections = async () => {
@@ -80,7 +101,7 @@ class Homepage extends Component {
                         <div style={{margin: "auto", marginTop: "50px", marginBottom: "25px", width: "25%"}}>
                             <h2>Ongoing Election</h2>
 
-                            <List className={this.classes.root}>
+                            {this.props.candidates.length > 0 ? (<List className={this.classes.root}>
                                 {/* Ongoing election */}
                                 <ListItem alignItems="flex-start" onClick={this.goToOngoingElection}>
                                     {/* Question Mark indicating no one has won yet? */}
@@ -99,15 +120,15 @@ class Homepage extends Component {
                                             className={this.classes.inline}
                                             color="textPrimary"
                                         >
-                                            You have not cast your vote yet! <br/>
+                                            {this.state.ongoingElection.userHasVoted ?  "You have already voted." : "You have not cast your vote yet!"} <br/>
                                         </Typography>
                                         {"Current status: ongoing"} <br/>
-                                        {"Total number of votes so far: 572338"}
+                                        {"Total number of votes so far: " + this.state.ongoingElection.totalVotes}
                                         </React.Fragment>
                                     }
                                     />
                                 </ListItem>
-                            </List>
+                            </List>) : "There is currently no ongoing election."}
                         </div>
 
                         <Divider variant="inset"/> <br/>

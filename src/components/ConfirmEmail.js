@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import axios from "axios";
 import swal from "sweetalert";
+import LoadingOverlay from 'react-loading-overlay';
 
 export class ConfirmEmail extends Component {
   componentDidMount() {
     alert("Please check your email");
   }
 
+  state = {
+    isLoadingOverlayActive: false,
+  };
+
   // When the user enters the confirmation code then clicks confirm
   confirm = (event) => {
     event.preventDefault();
+    this.setState({isLoadingOverlayActive: true});
 
     //Retrieve the National ID and Password from the Registeration component
     const param = {
@@ -25,16 +31,25 @@ export class ConfirmEmail extends Component {
           if (res.status === 200) {
             swal("Success!", "User Registered Successfully", "success");
             window.location.pathname = "/login";
+            this.setState({isLoadingOverlayActive: false});
           }
         })
-        .catch(() => swal("Error!", "Registration failed!", "error"));
+        .catch(() => {swal("Error!", "Registration failed!", "error"); this.setState({isLoadingOverlayActive: false});});
     } else {
       swal("Error!", "Invalid Code", "error");
+      this.setState({isLoadingOverlayActive: false});
     }
+
+    this.setState({isLoadingOverlayActive: false});
   };
 
   render() {
     return (
+      <LoadingOverlay
+        active={this.state.isLoadingOverlayActive}
+        spinner
+        text='Adding user...'
+      >
       <div>
         <head>
           <link
@@ -99,6 +114,7 @@ export class ConfirmEmail extends Component {
           </div>
         </body>
       </div>
+      </LoadingOverlay>
     );
   }
 }

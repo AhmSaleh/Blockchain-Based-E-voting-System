@@ -6,7 +6,7 @@ import atob from "atob";
 import Layout from "./Layout";
 import "../static/styles.css";
 import "semantic-ui-css/semantic.min.css";
-
+import LoadingOverlay from 'react-loading-overlay';
 
 const axios = require("axios");
 
@@ -30,13 +30,18 @@ class RemoveCandidate extends Component {
       window.location.pathname = "/login";
     }
   }
+  
   componentDidMount() {
     this.checkIfAuthenticated();
   }
 
+  state = {
+    isLoadingOverlayActive: false,
+  };
+
   remove = (index, event) => {
     // event.preventDefault();
-    //alert(localStorage.getItem("token"));
+
     swal({
       title: "Are you sure?",
       text: "Once the candidate is removed, your action cannot be undone!",
@@ -53,6 +58,8 @@ class RemoveCandidate extends Component {
   };
 
   removeYesCallback = async (index, event) => {
+    this.setState({isLoadingOverlayActive: true});
+
     var candidateID = this.props.candidates[index]._id;
 
     axios
@@ -70,19 +77,32 @@ class RemoveCandidate extends Component {
               from: accounts[0],
               gas: 1000000,
             });
+            this.setState({isLoadingOverlayActive: false});
           } catch (err) {
             console.log(err);
+            this.setState({isLoadingOverlayActive: false});
           }
 
           swal("Success!", "Candidate removed successfully!", "success");
+          this.setState({isLoadingOverlayActive: false});
           window.location.pathname = "/remove_candidate";
-        } else if (res.status === 400) alert(res.data);
+        } else if (res.status === 400) {
+          alert(res.data);
+          this.setState({isLoadingOverlayActive: false});
+        };
       })
-      .catch((err) => swal("Error!", err.message, "error"));
+      .catch((err) => {swal("Error!", err.message, "error"); this.setState({isLoadingOverlayActive: false});});
+
+      this.setState({isLoadingOverlayActive: false});
   };
 
   render() {
     return (
+      <LoadingOverlay
+        active={this.state.isLoadingOverlayActive}
+        spinner
+        text='Adding user...'
+      >
       <Layout>
       <div>
         <head>
@@ -158,6 +178,7 @@ class RemoveCandidate extends Component {
         </body>
       </div>
       </Layout>
+      </LoadingOverlay>
     );
   }
 }

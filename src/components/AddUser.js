@@ -5,6 +5,7 @@ import atob from "atob";
 import "../static/styles.css";
 import "semantic-ui-css/semantic.min.css";
 import Layout from "./Layout";
+import LoadingOverlay from 'react-loading-overlay';
 
 const axios = require("axios");
 
@@ -32,8 +33,13 @@ class AddUser extends Component {
     this.checkIfAuthenticated();
   }
 
+  state = {
+    isLoadingOverlayActive: false,
+  };
+
   addUser = (event) => {
     event.preventDefault();
+    this.setState({isLoadingOverlayActive: true});
 
     // Creating a new user
     const param = {
@@ -53,13 +59,21 @@ class AddUser extends Component {
         if (res.status === 200) {
           swal("Success!", "User added successfully!", "success");
           window.location.pathname = "/admin";
+          this.setState({isLoadingOverlayActive: false});
         }
       })
-      .catch(() => swal("Error!", "Adding user failed!", "error"));
+      .catch(() => {swal("Error!", "Adding user failed!", "error"); this.setState({isLoadingOverlayActive: false});});
+
+      this.setState({isLoadingOverlayActive: false});
   };
 
   render() {
     return (
+      <LoadingOverlay
+        active={this.state.isLoadingOverlayActive}
+        spinner
+        text='Adding user...'
+      >
       <Layout>
       <div>
         <head>
@@ -162,6 +176,7 @@ class AddUser extends Component {
         </body>
       </div>
       </Layout>
+      </LoadingOverlay>
     );
   }
 }

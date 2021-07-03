@@ -28,7 +28,7 @@ class Admin extends Component {
     }
   };
   componentDidMount = () => {
-    // this.checkIfAuthenticated();
+    this.checkIfAuthenticated();
   };
 
   // Navigating to the NewCandidate.js component
