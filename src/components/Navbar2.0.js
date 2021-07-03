@@ -5,6 +5,8 @@ import logoutIcon from '../imgs/logout.png'
 class Navbar extends Component {
   state = {};
   render() {
+
+    
     return (
       <React.Fragment>
         <nav

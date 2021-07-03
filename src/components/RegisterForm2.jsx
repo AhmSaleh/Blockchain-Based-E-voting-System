@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import logo from "../imgs/logo.png";
 import { Link } from "react-router-dom";
 
-
-
-class Signin extends Component {
+class Register extends Component {
   state = {};
   render() {
     return (
@@ -23,7 +21,7 @@ class Signin extends Component {
         >
           <form style = {{marginTop:"200px"}}class="form-signin">
             <img class="mb-4" src={logo} alt="" width="72" height="72" />
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Register</h1>
             <label for="inputEmail" class="sr-only">
               Email address
             </label>
@@ -43,11 +41,8 @@ class Signin extends Component {
               placeholder="Password"
               required
             />
-            <div class="mb-1 mt-3">
-              <Link style = {{color:"#212529", textDecoration: "none"}}to="/register"> Don't have an account yet? </Link>
-            </div>
             <div class="mb-3 mt-3">
-              <Link style = {{color:"#212529", textDecoration: "none"}}to="/forgot_password2"> Forgot your password? </Link>
+              <Link style = {{color:"#212529", textDecoration: "none"}}to="/login2"> Already have an account?</Link>
             </div>
             <button class="btn btn-lg btn-secondary btn-block" type="submit">
               Sign in
@@ -60,4 +55,4 @@ class Signin extends Component {
   }
 }
 
-export default Signin;
+export default Register;

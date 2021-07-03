@@ -3,6 +3,7 @@ import "./App.css";
 import ballot from "./ballot";
 import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
+import RegisterForm2 from "./components/RegisterForm2";
 import Candidates from "./components/Candidates";
 import Homepage from "./components/Homepage";
 import Admin from "./components/Admin";
@@ -12,9 +13,11 @@ import RemoveCandidate from "./components/RemoveCandidate";
 import AddUser from "./components/AddUser";
 import ConfirmEmail from "./components/ConfirmEmail";
 import ForgotPassword from "./components/ForgotPassword";
+import ForgotPassword2 from "./components/ForgotPassword2";
 import ConfirmNewPassword from "./components/ConfirmNewPassword";
 import Signin from "./components/Signin"; 
 import Election from "./components/Election";
+import ConfirmNewPassword2 from './components/ConfirmNewPassword2'
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 
 const axios = require("axios");
@@ -93,6 +96,16 @@ class App extends Component {
             )}
           />
 
+          {/* Register Route 2*/}
+          <Route
+            path="/register2"
+            render={() => (
+              <>
+                <RegisterForm2 token={this.state.token} />
+              </>
+            )}
+          />
+
           {/* Elections Homepage Route*/}
           <Route
             path="/elections"
@@ -163,15 +176,21 @@ class App extends Component {
           {/* Forgot Password Route*/}
           <Route path="/forgot_password" component={ForgotPassword} />
 
+          {/* Forgot Password 2 Route*/}
+          <Route path="/forgot_password2" component={ForgotPassword2} />
+
           {/* Confirm New Password Code Route*/}
           <Route path="/confirm_new_password" component={ConfirmNewPassword} />
+
+          {/* Confirm New Password Code Route*/}
+          <Route path="/confirm_new_password2" component={ConfirmNewPassword2} />
 
           {/* Confirm Email Code Route*/}
           <Route path="/confirm" component={ConfirmEmail} />
 
           {/* Sigin 2.0 Route*/}
             <Route
-            path="/signin"
+            path="/login2"
             render={() => (
               <>
                 <Signin/>
