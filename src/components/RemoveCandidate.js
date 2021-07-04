@@ -98,12 +98,12 @@ class RemoveCandidate extends Component {
 
   render() {
     return (
-      <LoadingOverlay
-        active={this.state.isLoadingOverlayActive}
-        spinner
-        text='Adding user...'
-      >
       <Layout>
+        <LoadingOverlay
+          active={this.state.isLoadingOverlayActive}
+          spinner
+          text='Removing candidate...'
+        >
       <div>
         <head>
           <link
@@ -172,13 +172,16 @@ class RemoveCandidate extends Component {
                       </div>
                     </div>
                   ))
-                : "There are currently no candidates"}
+                : 
+                (<h2 style={{margin: "auto", width: "40%"}}>
+                    There are currently no candidates
+                  </h2>)}
             </div>
           </div>
         </body>
       </div>
-      </Layout>
       </LoadingOverlay>
+      </Layout>
     );
   }
 }

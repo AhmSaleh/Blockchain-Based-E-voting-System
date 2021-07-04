@@ -13,6 +13,7 @@ import NewCandidate from "./components/NewCandidate";
 import RemoveCandidate from "./components/RemoveCandidate";
 import AddUser from "./components/AddUser";
 import ConfirmEmail from "./components/ConfirmEmail";
+import ConfirmEmail2 from "./components/ConfirmEmail2";
 import ForgotPassword from "./components/ForgotPassword";
 import ForgotPassword2 from "./components/ForgotPassword2";
 import ConfirmNewPassword from "./components/ConfirmNewPassword";
@@ -20,6 +21,7 @@ import Signin from "./components/Signin";
 import Election from "./components/Election";
 import ConfirmNewPassword2 from "./components/ConfirmNewPassword2";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
+import AddUser2 from "./components/AddUser2";
 
 const axios = require("axios");
 
@@ -134,18 +136,18 @@ class App extends Component {
           />
 
           {/* Admin Route*/}
-          <Route
+          {/* <Route
             path="/admin"
             render={() => (
               <>
                 <TestAdmin token={this.state.token} />
               </>
             )}
-          />
+          /> */}
 
           {/* Admin 2.0 Route*/}
           <Route
-            path="/admin2"
+            path="/admin"
             render={() => (
               <>
                 <TestAdmin2 token={this.state.token} />
@@ -177,11 +179,21 @@ class App extends Component {
           />
 
           {/* Add User Route*/}
-          <Route
+          {/* <Route
             path="/add_user"
             render={() => (
               <>
                 <AddUser token={this.state.token} />
+              </>
+            )}
+          /> */}
+
+          {/* Add User2.0 Route*/}
+          <Route
+            path="/add_user"
+            render={() => (
+              <>
+                <AddUser2 token={this.state.token} />
               </>
             )}
           />
@@ -213,7 +225,10 @@ class App extends Component {
           <Route path="/confirm_new_password" component={ConfirmNewPassword2} />
 
           {/* Confirm Email Code Route*/}
-          <Route path="/confirm" component={ConfirmEmail} />
+          {/* <Route path="/confirm" component={ConfirmEmail} /> */}
+
+          {/* Confirm Email Code 2.0 Route*/}
+          <Route path="/confirm" component={ConfirmEmail2} />
 
           {/* Election Route*/}
           <Route

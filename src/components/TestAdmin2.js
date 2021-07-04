@@ -29,7 +29,7 @@ const TestAdmin = () => {
   };
 
   useEffect(() => {
-    // checkIfAuthenticated();
+    checkIfAuthenticated();
   }, []);
 
   // Navigating to the NewCandidate.js component
@@ -178,9 +178,7 @@ const TestAdmin = () => {
             <div>
               <h3>Add User</h3>
               <p>
-                Add new user ..... We'll add onto it with another sentence and
-                probably just keep going until we run out of words.We'll add
-                onto it with another sentence.
+                Add a new user to the system to be eligible to vote. Users then have to register with their own passwords. 
               </p>
               {/* Add User Button */}
               <a
@@ -211,9 +209,9 @@ const TestAdmin = () => {
             <div>
               <h3>Add Canddiate</h3>
               <p>
-                Add new Candidate ..... We'll add onto it with another sentence
-                and probably just keep going until we run out of words.We'll add
-                onto it with another sentence.
+                Add a new candidate to the system, with their <strong>Name</strong>, <strong>Symbol</strong>,
+                <strong>Description</strong>, and <strong>Photo</strong>. The candidate will be added to the ongoing election.
+                If there is no ongoing election, adding a candidate starts a new election.
               </p>
               {/* Add Candidate Button */}
               <a
@@ -244,9 +242,7 @@ const TestAdmin = () => {
             <div>
               <h3>Remove Candidate</h3>
               <p>
-                Remove Candidate ..... We'll add onto it with another sentence
-                and probably just keep going until we run out of words.We'll add
-                onto it with another sentence.
+                Remove a candidate from an ongoing election.
               </p>
               {/* Remove Candidate Button */}
               <a
@@ -282,9 +278,8 @@ const TestAdmin = () => {
             <div>
               <h3>End Election</h3>
               <p>
-                End election ..... We'll add onto it with another sentence and
-                probably just keep going until we run out of words.We'll add
-                onto it with another sentence.
+                End an ongoing election. The election then gets added to the database with its
+                winner, losers and total number of votes, and winner votes. 
               </p>
               {/* End Election Button */}
               <a

@@ -106,7 +106,8 @@ class Homepage extends Component {
                                 <ListItem alignItems="flex-start" onClick={this.goToOngoingElection}>
                                     {/* Question Mark indicating no one has won yet? */}
                                     <ListItemAvatar>
-                                        <Avatar alt="?" src=""/>
+                                        <Avatar alt="?"
+                                        src="https://www.flaticon.com/free-icon/question-mark_57108"/>
                                     </ListItemAvatar>
 
                                     {/* Election details */}
@@ -149,7 +150,7 @@ class Homepage extends Component {
                                     <ListItem alignItems="flex-start" onClick={() => this.goToElection(election._id)}>
                                         {/* Election winner's avatar */}
                                         <ListItemAvatar>
-                                            <Avatar alt="?" src=""/>
+                                            <Avatar alt={election.candidateWinner.name} src={election.candidateWinner.photo}/>
                                         </ListItemAvatar>
 
                                         {/* Election details */}
