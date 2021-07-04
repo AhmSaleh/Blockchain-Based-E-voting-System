@@ -62,7 +62,7 @@ class Navbar extends Component {
     return (
       <React.Fragment>
         <nav
-          style={{ backgroundColor: "#f7f7f7" }}
+          style={{ backgroundColor: "#ececec"}}
           className="navbar navbar-expand-lg navbar-light"
         >
           <div class="container px-4 px-lg-5">
@@ -84,7 +84,7 @@ class Navbar extends Component {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                  <a class="nav-link active ml-5" aria-current="page" style={{cursor: "pointer"}} onClick={this.goToElections}>
+                  <a class="nav-link active ml-5" aria-current="page" style={{cursor: "pointer", fontWeight: "420"}} onClick={this.goToElections}>
                     Home
                   </a>
                 </li>

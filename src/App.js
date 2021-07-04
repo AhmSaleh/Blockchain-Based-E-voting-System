@@ -8,6 +8,7 @@ import Candidates from "./components/Candidates";
 import Homepage from "./components/Homepage";
 import Admin from "./components/Admin";
 import TestAdmin from "./components/TestAdmin";
+import TestAdmin2 from "./components/TestAdmin2";
 import NewCandidate from "./components/NewCandidate";
 import RemoveCandidate from "./components/RemoveCandidate";
 import AddUser from "./components/AddUser";
@@ -15,9 +16,9 @@ import ConfirmEmail from "./components/ConfirmEmail";
 import ForgotPassword from "./components/ForgotPassword";
 import ForgotPassword2 from "./components/ForgotPassword2";
 import ConfirmNewPassword from "./components/ConfirmNewPassword";
-import Signin from "./components/Signin"; 
+import Signin from "./components/Signin";
 import Election from "./components/Election";
-import ConfirmNewPassword2 from './components/ConfirmNewPassword2'
+import ConfirmNewPassword2 from "./components/ConfirmNewPassword2";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 
 const axios = require("axios");
@@ -62,13 +63,13 @@ class App extends Component {
     return (
       <Router>
         <div>
-          
           {/* Home Route*/}
           <Route
-            exact path="/"
+            exact
+            path="/"
             render={() => (
               <>
-                <Redirect to="/login"/>
+                <Redirect to="/login" />
               </>
             )}
           />
@@ -87,16 +88,17 @@ class App extends Component {
           /> */}
 
           {/* Sigin 2.0 Route*/}
-            <Route
+          <Route
             path="/login"
             render={() => (
               <>
-                <Signin 
+                <Signin
                   tokenHandler={this.handleTokenChange}
-                  token={this.state.token}/>
+                  token={this.state.token}
+                />
               </>
             )}
-            />
+          />
 
           {/* Register Route*/}
           {/* <Route
@@ -123,7 +125,10 @@ class App extends Component {
             path="/elections"
             render={() => (
               <>
-                <Homepage token={this.state.token} candidates={this.state.candidates}/>
+                <Homepage
+                  token={this.state.token}
+                  candidates={this.state.candidates}
+                />
               </>
             )}
           />
@@ -137,7 +142,17 @@ class App extends Component {
               </>
             )}
           />
-          
+
+          {/* Admin 2.0 Route*/}
+          <Route
+            path="/admin2"
+            render={() => (
+              <>
+                <TestAdmin2 token={this.state.token} />
+              </>
+            )}
+          />
+
           {/* New Candidate Route*/}
           <Route
             path="/new_candidate"
@@ -200,19 +215,15 @@ class App extends Component {
           {/* Confirm Email Code Route*/}
           <Route path="/confirm" component={ConfirmEmail} />
 
-          
-
-
           {/* Election Route*/}
           <Route
             path="/election/:id"
             render={(routerProps) => (
               <>
-                <Election id={routerProps.match.params.id}/>
+                <Election id={routerProps.match.params.id} />
               </>
             )}
-            />
-            
+          />
         </div>
       </Router>
     );

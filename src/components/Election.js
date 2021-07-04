@@ -4,7 +4,7 @@ import Footer from './Footer2';
 import WinnerCandidate from './WinnerCandidate';
 import LoserCandidates from './LoserCandidates';
 import axios from "axios";
-
+import Layout from './Layout'
 class Election extends Component {
     constructor(props) {
     super(props);
