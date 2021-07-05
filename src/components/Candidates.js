@@ -35,7 +35,7 @@ class Candidates extends Component {
   };
   
   componentDidMount() {
-    // this.checkIfAuthenticated();
+    this.checkIfAuthenticated();
   }
 
   state = {
@@ -142,7 +142,7 @@ class Candidates extends Component {
                       animationName: "fadeInUp",
                     }}
                   >
-                    <h3 style={{fontSize: "40px"}}>Candidates</h3>
+                    <h3 style={{fontSize: "40px", fontWeight:420, marginTop: "20px"}}>Candidates</h3>
                     <p style={{fontSize: "25px"}} >
                       Please cast your vote for one of the available candidates.
                     </p>
@@ -171,14 +171,15 @@ class Candidates extends Component {
                           {/* Candidate Avatar */}
                           <div className="advisor_thumb">
                             <img
-                              // src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                style={{width:"200px", height:"400px", objectFit:"cover"}}
+                                // src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Jo_Jorgensen_portrait_3.jpg/220px-Jo_Jorgensen_portrait_3.jpg"
                               src={candidate.photo}
                             />
                           </div>
                           {/* Candidate Details */}
                           <div className="single_advisor_details_info">
-                            <h6>{candidate.name}</h6>
-                            <p className="designation">{candidate.symbol}</p>
+                            <h6 style={{color:"white"}}>{candidate.name}</h6>
+                            <p style={{color:"white"}} className="designation">{candidate.symbol}</p>
                           </div>
                         </div>
                       </div>
