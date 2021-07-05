@@ -55,7 +55,7 @@ class Election extends Component {
     }
 
     componentDidMount = () => {
-        this.getElectionDetails();
+        // this.getElectionDetails();
     }
 
     getElectionDetails = () => {

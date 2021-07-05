@@ -136,8 +136,8 @@ class RemoveCandidate extends Component {
                     animationName: "fadeInUp",
                   }}
                 >
-                  <h3>Candidates</h3>
-                  <p>Choose A Candidate To Remove:</p>
+                  <h3 style={{fontSize: "40px", fontWeight:420, marginTop: "20px"}}>Candidates</h3>
+                  <p style={{fontSize: "25px"}} >Choose A Candidate To Remove:</p>
                   <div className="line"></div>
                 </div>
               </div>
@@ -166,8 +166,8 @@ class RemoveCandidate extends Component {
                         </div>
                         {/* Candidate Details */}
                         <div className="single_advisor_details_info">
-                          <h6>{candidate.name}</h6>
-                          <p className="designation">{candidate.symbol}</p>
+                          <h6 style={{color:"white"}} >{candidate.name}</h6>
+                          <p style={{color:"white"}} className="designation">{candidate.symbol}</p>
                         </div>
                       </div>
                     </div>
