@@ -69,7 +69,7 @@ class Navbar extends Component {
             <a class="navbar-brand" href="#!">
               DEVS
             </a>
-            <img src={logo} height="35px" width="35px" />
+            <img src={logo} height="35px" width="35px" style={{fontWeight: "420"}}/>
             <button
               class="navbar-toggler"
               type="button"

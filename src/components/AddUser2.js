@@ -31,7 +31,7 @@ class AddUser2 extends Component {
     }
   }
   componentDidMount() {
-    this.checkIfAuthenticated();
+    // this.checkIfAuthenticated();
   }
 
   state = {
@@ -81,7 +81,7 @@ class AddUser2 extends Component {
               position: "absolute",
               left: "50%",
               top: "50%",
-              transform: "translate(-50%, -50%)",
+              transform: "translate(-50%, -43%)",
             }}
           className="text-center"
         >
@@ -90,7 +90,7 @@ class AddUser2 extends Component {
             spinner
             text='Adding user...'
         >
-          <form style = {{marginTop:"200px"}}class="form-signin" onSubmit={this.addUser}>
+          <form style = {{marginTop:"200px"}} class="form-signin" onSubmit={this.addUser}>
             <img class="mb-4" src={logo} alt="" width="72" height="72" />
             <h1 class="h3 mb-3 font-weight-normal">Add User</h1>
             <label for="nationalID" class="sr-only">

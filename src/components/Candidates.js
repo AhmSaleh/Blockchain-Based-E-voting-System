@@ -9,6 +9,7 @@ import jwt from "jsonwebtoken";
 import "../static/styles.css";
 import "semantic-ui-css/semantic.min.css";
 import Layout from "./Layout";
+import Navbar from "./Navbar2.0";
 import LoadingOverlay from 'react-loading-overlay';
 
 class Candidates extends Component {
@@ -34,7 +35,7 @@ class Candidates extends Component {
   };
   
   componentDidMount() {
-    this.checkIfAuthenticated();
+    // this.checkIfAuthenticated();
   }
 
   state = {
@@ -108,7 +109,7 @@ class Candidates extends Component {
         spinner
         text='Casting your vote...'
       >
-        <Layout>
+        <Navbar />
         <div>
           <head>
             <link
@@ -170,8 +171,8 @@ class Candidates extends Component {
                           {/* Candidate Avatar */}
                           <div className="advisor_thumb">
                             <img
-                              //src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              src={candidate.photo}
+                              src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                              // src={candidate.photo}
                             />
                           </div>
                           {/* Candidate Details */}
@@ -213,8 +214,10 @@ class Candidates extends Component {
             </div>
           </body>
         </div>
-        </Layout>
-      </LoadingOverlay>
+        <footer style = {{backgroundColor: "#ececec", position: "fixed", bottom: 0, width:"100%"}} className="py-5">
+            <div style = {{color: "rgb(104, 104, 104)", height: "calc(100% - 60px)"}} class="container"><p class="m-0 text-center"> &copy; 2020-2021</p></div>
+        </footer>
+    </LoadingOverlay>
     );
   }
 }
