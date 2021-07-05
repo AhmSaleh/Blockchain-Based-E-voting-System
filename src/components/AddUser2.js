@@ -123,7 +123,6 @@ class AddUser2 extends Component {
                     name="isAdmin"
                     type="checkbox"
                     class="form-control"
-                    required
                 ></input>
                 </h5>
             </div>
