@@ -171,8 +171,8 @@ class Candidates extends Component {
                           {/* Candidate Avatar */}
                           <div className="advisor_thumb">
                             <img
-                              src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                              // src={candidate.photo}
+                              // src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                              src={candidate.photo}
                             />
                           </div>
                           {/* Candidate Details */}
