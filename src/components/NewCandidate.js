@@ -156,12 +156,14 @@ class NewCandidate extends React.Component {
               />
             </Form.Field>
             <div className="img-holder">
-              <Image src={candidatePhoto} alt="" size="medium" rounded />
+              <Image style={{                        objectFit: "cover",
+                        width: "275px",
+                        height: "309px"}}src={candidatePhoto} alt="" size="medium" rounded />
             </div>
             <Message error header="Oops!" content={this.state.errorMessage} />
             <Button
               fluid
-              secondary
+              
               style={{ margin: "0 auto", display: "block", margin: "10% 0px" }}
               loading={this.state.loading}
               type="submit"
