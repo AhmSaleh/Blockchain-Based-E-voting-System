@@ -31,7 +31,7 @@ class AddUser2 extends Component {
     }
   }
   componentDidMount() {
-    // this.checkIfAuthenticated();
+    this.checkIfAuthenticated();
   }
 
   state = {
