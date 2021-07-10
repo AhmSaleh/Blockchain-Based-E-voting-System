@@ -29,7 +29,7 @@ class NewCandidate extends React.Component {
     }
   }
   componentDidMount() {
-    // this.checkIfAuthenticated();
+    this.checkIfAuthenticated();
   }
 
   state = {
@@ -61,8 +61,10 @@ class NewCandidate extends React.Component {
           "success"
         );
         window.location.pathname = "/new_candidate";
-      } catch (err) {
-        console.log(err.message);
+      } catch{
+        swal("Error!", "Transaction error!", "error");
+        this.setState({ loading: false });
+        return;
       }
     };
 

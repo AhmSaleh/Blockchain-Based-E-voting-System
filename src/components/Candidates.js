@@ -66,23 +66,32 @@ class Candidates extends Component {
 
     const accounts = await web3.eth.getAccounts();
 
-    await ballot.methods.vote(0).send({
-      from: accounts[0],
-      gas: 1000000,
-    })
-    .then((hasVoted) => {
-      if (hasVoted) {
-        swal("Your vote was successfully cast!", {
-          icon: "success",
-        });
-      } else {
-        swal("Error", "There was an error when casting your vote!", {
+    try{
+      await ballot.methods.vote(index).send({
+        from: accounts[0],
+        gas: 1000000,
+      });
+    }catch{
+      swal("Error", "There was an error when casting your vote! Make sure you haven't already cast your vote.", {
           icon: "error",
         });
-        this.setState({isLoadingOverlayActive: false});
-        return;
-      }
-    });
+      this.setState({isLoadingOverlayActive: false});
+      return;
+    }
+
+    // .then((hasVoted) => {
+    //   if (hasVoted) {
+    //     swal("Your vote was successfully cast!", {
+    //       icon: "success",
+    //     });
+    //   } else {
+    //     swal("Error", "There was an error when casting your vote!", {
+    //       icon: "error",
+    //     });
+    //     this.setState({isLoadingOverlayActive: false});
+    //     return;
+    //   }
+    // });
 
     await axios
       .put("http://localhost:5000/api/users/voted", "", {
@@ -215,9 +224,6 @@ class Candidates extends Component {
             </div>
           </body>
         </div>
-        <footer style = {{backgroundColor: "#ececec", position: "fixed", bottom: 0, width:"100%"}} className="py-5">
-            <div style = {{color: "rgb(104, 104, 104)", height: "calc(100% - 60px)"}} class="container"><p class="m-0 text-center"> &copy; 2020-2021</p></div>
-        </footer>
     </LoadingOverlay>
     );
   }
