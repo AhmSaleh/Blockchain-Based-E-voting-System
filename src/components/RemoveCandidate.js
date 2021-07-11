@@ -7,6 +7,7 @@ import Layout from "./Layout";
 import "../static/styles.css";
 import "semantic-ui-css/semantic.min.css";
 import LoadingOverlay from 'react-loading-overlay';
+import Navbar from "./Navbar2.0";
 
 const axios = require("axios");
 
@@ -98,12 +99,12 @@ class RemoveCandidate extends Component {
 
   render() {
     return (
-      <Layout>
-        <LoadingOverlay
-          active={this.state.isLoadingOverlayActive}
-          spinner
-          text='Removing candidate...'
-        >
+      <LoadingOverlay
+      active={this.state.isLoadingOverlayActive}
+      spinner
+      text='Removing candidate...'
+      >
+      <Navbar />
       <div>
         <head>
           <link
@@ -162,7 +163,7 @@ class RemoveCandidate extends Component {
                       >
                         {/* Candidate Avatar */}
                         <div className="advisor_thumb">
-                          <img src={candidate.photo} alt="" />
+                          <img src={candidate.photo} alt="" style={{width:"200px", height:"400px", objectFit:"cover"}}/>
                         </div>
                         {/* Candidate Details */}
                         <div className="single_advisor_details_info">
@@ -181,7 +182,6 @@ class RemoveCandidate extends Component {
         </body>
       </div>
       </LoadingOverlay>
-      </Layout>
     );
   }
 }
